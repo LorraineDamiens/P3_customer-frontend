@@ -1,9 +1,13 @@
 import React from "react";
 import { useHistory, Link, useLocation } from "react-router-dom";
 import { Container, CardGroup, Button } from "reactstrap";
-import { services } from "../datas";
-import ServiceCard from "./ServiceCard";
+
 import SendDatas from "./SendDatas";
+import Animations from "./Animations";
+import Reception from "./Reception";
+import Restaurants from "./Restaurants";
+import Audiovisual from "./Audiovisual";
+import Staff from "./Staff";
 
 function CardList() {
   const history = useHistory();
@@ -12,14 +16,16 @@ function CardList() {
   };
   return (
     <Container>
-      <CardGroup>
-        {services.map(service => {
-          return <ServiceCard {...service} key={service.id} />;
-        })}
-      </CardGroup>
+      <Animations />
+      <Reception />
+      <Restaurants />
+      <Audiovisual />
+      <Staff />
       <Button onClick={goBack}>Précédent</Button>
 
-      <SendDatas />
+      <Button tag={Link} to="/confirmation">
+        Terminer
+      </Button>
     </Container>
   );
 }

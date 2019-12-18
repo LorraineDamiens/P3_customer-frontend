@@ -1,4 +1,7 @@
-export const services = [
+import React from "react";
+import SendDatas from "./components/SendDatas";
+
+/* export const services = [
   {
     id: 1,
     name: "Lieu de réception",
@@ -11,7 +14,8 @@ export const services = [
     ],
     service: null,
     size: null,
-    outdoor: null
+    outdoor: null,
+    component: <SendDatas />
   },
   {
     id: 2,
@@ -94,4 +98,95 @@ export const services = [
     size: null,
     outdoor: null
   }
-];
+]; */
+
+export const animations = {
+  style: [
+    { name: "Digitale" },
+    { name: "Extrème" },
+    { name: "Ludique" },
+    { name: "Motorisé" },
+    { name: "Participative" },
+    { name: "En close up" },
+    { name: "Visuel" },
+    { name: "Sur scène" }
+  ],
+
+  /* activities: [
+    "Animation vin",
+    "Animation Teambuilding",
+    "Animation Cocktail",
+    "Animation culinaire",
+    "Animations digitales",
+    "Animation artistique",
+    "Animation culturelle",
+    "Animation robot",
+    "Animation spectacle",
+    "Animation sportive",
+    "Photobooth",
+    "Artificiers",
+    "Bien être et beauté",
+    "Cadeau d'entreprise",
+    "Dégustation vin et spiritueux",
+    "Escape Game",
+    "Magie et Close-up",
+    "Structure gonflable",
+    "VR et Réalité augmentée",
+    "Décoration évenementielle",
+    "Esthétique / Coiffure / Maquillage"
+  ], */
+
+  fitForOutdoor: ["Intérieur", "Extérieur"]
+};
+
+export const restaurants = {
+  style: [
+    { name: "Brunch" },
+    { name: "Déjeuner" },
+    { name: "Cocktail déjeunatoire" },
+    { name: "Cocktail dinatoire" },
+    { name: "Brunch" },
+    { name: "Buffet" },
+    { name: "Plateau repas" },
+    { name: "Pause gourmande" }
+  ],
+
+  size: [{ name: "Généreux" }, { name: "Moyen" }, { name: "Petite faim" }],
+
+  serviceAtTable: ["Debout", "Service à table"]
+};
+
+export const audiovisual = {
+  activities: [
+    { name: "DJ" },
+    { name: "Orchestre musical" },
+    { name: "Live musical" },
+    { name: "Son" },
+    { name: "Lumière/Projection" },
+    { name: "Régie" },
+    { name: "Photographe" },
+    { name: "Drône/Vidéo" },
+    { name: "Création & impressions publicitaires" }
+  ]
+};
+
+export const staff = {
+  activities: [
+    { name: "Influenceurs/Célébrités" },
+    { name: "Speaker/Conférenciers" },
+    { name: "Animateur" },
+    { name: "Serveurs" },
+    { name: "Hôtesses" },
+    { name: "Agent de sécurité" },
+    { name: "Chef cuisinier" },
+    { name: "Voiturier" },
+    { name: "Transport évènementiel" },
+    { name: "VTC" }
+  ]
+};
+
+export const reception = {
+  style: [{ name: "Atypique" }, { name: "Classique" }, { name: "Prestige" }],
+
+  fitForOutdoor: ["Intérieur", "Extérieur"]
+};

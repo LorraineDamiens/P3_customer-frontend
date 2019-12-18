@@ -17,7 +17,7 @@ function CompanyInfo({ dispatch }) {
         e.target.nodeName === "TEXTAREA" ? e.target.value : e.target.checked
     });
   };
-  const sendDatas = () => {
+  const sendDatas = pathname => {
     if (values) {
       dispatch({ type: "COMPANY_EVENT_CHOICE", payload: values });
     }
@@ -122,9 +122,9 @@ function CompanyInfo({ dispatch }) {
         </Col>
       </FormGroup>
       <Button onClick={goBack}>Précédent</Button>
-      <Button onClick={sendDatas}>send to Redux</Button>
+      <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
 
-      <Button
+      {/* <Button
         tag={Link}
         to={{
           pathname: "/misc",
@@ -135,7 +135,7 @@ function CompanyInfo({ dispatch }) {
         }}
       >
         Continuer
-      </Button>
+      </Button> */}
     </>
   );
 }

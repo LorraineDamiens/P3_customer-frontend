@@ -37,6 +37,37 @@ export const reducer = (state = initialState, action) => {
         ...state,
         services: { ...state.services, ...payload }
       };
+    case "ANIMATIONS":
+      return {
+        ...state,
+        animations: [...payload]
+      };
+    case "RECEPTION":
+      return {
+        ...state,
+        reception: {
+          selection: [...payload.selection],
+          preference: payload.preference
+        }
+      };
+    case "RESTAURANTS":
+      return {
+        ...state,
+        reception: {
+          selection: [...payload.selection],
+          preference: payload.preference
+        }
+      };
+    case "AUDIOVISUAL":
+      return {
+        ...state,
+        audiovisual: [...payload]
+      };
+    case "STAFF":
+      return {
+        ...state,
+        staff: [...payload]
+      };
     default:
       return state;
   }

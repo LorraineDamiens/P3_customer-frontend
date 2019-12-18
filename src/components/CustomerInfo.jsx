@@ -16,9 +16,10 @@ function CustomerInfo({ dispatch }) {
     });
   };
 
-  const sendDatas = () => {
+  const sendDatas = pathname => {
     if (values) {
       dispatch({ type: "CUSTOMER_EVENT_CHOICE", payload: values });
+      history.push(pathname);
     }
   };
 
@@ -58,10 +59,9 @@ function CustomerInfo({ dispatch }) {
           </FormGroup>
         </Col>
       </FormGroup>
-      <Button onClick={sendDatas}>send to Redux</Button>
+      <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
       <Button onClick={goBack}>Précédent</Button>
-
-      <Button
+      {/* <Button
         tag={Link}
         to={{
           pathname: "/misc",
@@ -73,6 +73,7 @@ function CustomerInfo({ dispatch }) {
       >
         Continuer
       </Button>
+ */}{" "}
     </>
   );
 }

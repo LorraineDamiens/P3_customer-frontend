@@ -20,9 +20,10 @@ function MiscInfo({ dispatch }) {
       [e.target.name]: e.target.value
     });
   };
-  const sendDatas = () => {
+  const sendDatas = pathname => {
     if (values) {
       dispatch({ type: "MISC_INFOS", payload: values });
+      history.push(pathname);
     }
   };
   const history = useHistory();
@@ -106,9 +107,11 @@ function MiscInfo({ dispatch }) {
         />
       </InputGroup>
       <Button onClick={goBack}>Précédent</Button>
-      <Button onClick={sendDatas}>send to Redux</Button>
+      <Button onClick={() => sendDatas("/services")}>
+        Choisir des prestations
+      </Button>
 
-      <Button
+      {/* <Button
         tag={Link}
         to={{
           pathname: "/services",
@@ -119,7 +122,7 @@ function MiscInfo({ dispatch }) {
         }}
       >
         Choisir des prestations
-      </Button>
+      </Button> */}
     </>
   );
 }

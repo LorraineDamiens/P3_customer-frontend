@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
 
+import { services } from "../datas";
+
 import MyModal from "./Modal";
 
 const ServiceCard = ({ color, name, buttonColor, types }) => {
@@ -17,7 +19,9 @@ const ServiceCard = ({ color, name, buttonColor, types }) => {
           <Button color={buttonColor} onClick={toggle}>
             Sélectionner
           </Button>
-          <MyModal isOpen={isOpen} toggle={toggle} types={types} />
+          <MyModal isOpen={isOpen} toggle={toggle} types={types}>
+            {services[0].component}
+          </MyModal>
         </Card>
       </Col>
     </>
