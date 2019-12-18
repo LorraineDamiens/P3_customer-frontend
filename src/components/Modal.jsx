@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Modal, ModalFooter, Button, Table, Input } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
+import { connect } from "react-redux";
 
-function MyModal({ isOpen, toggle, types }) {
+function MyModal({ isOpen, toggle, types, dispatch }) {
   const location = useLocation();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({
+    mariage: false,
+    soiree: false
+  });
   const [previousValues, setPreviousValues] = useState(location);
 
   const handleChange = e => {
@@ -12,6 +16,11 @@ function MyModal({ isOpen, toggle, types }) {
       ...values,
       [e.target.name]: e.target.value
     });
+  };
+  const sendDatas = () => {
+    if (values) {
+      dispatch({ type: "SERVICES", payload: values });
+    }
   };
 
   return (
@@ -27,7 +36,7 @@ function MyModal({ isOpen, toggle, types }) {
                       type="checkbox"
                       id="checkbox"
                       name="label"
-                      onClick={handleChange}
+                      onChange={handleChange}
                     />{" "}
                     {type.label}
                   </td>
@@ -54,10 +63,11 @@ function MyModal({ isOpen, toggle, types }) {
           >
             Enregistrer et Continuer
           </Button>
+          <Button onClick={sendDatas}>send to Redux</Button>
         </ModalFooter>
       </Modal>
     </>
   );
 }
 
-export default MyModal;
+export default connect()(MyModal);

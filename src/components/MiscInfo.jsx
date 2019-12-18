@@ -7,8 +7,9 @@ import {
   Button
 } from "reactstrap";
 import { useHistory, Link, useLocation } from "react-router-dom";
+import { connect } from "react-redux";
 
-function MiscInfo() {
+function MiscInfo({ dispatch }) {
   const location = useLocation();
   const [values, setValues] = useState({});
   const [previousValues, setPreviousValues] = useState(location);
@@ -19,7 +20,11 @@ function MiscInfo() {
       [e.target.name]: e.target.value
     });
   };
-
+  const sendDatas = () => {
+    if (values) {
+      dispatch({ type: "MISC_INFOS", payload: values });
+    }
+  };
   const history = useHistory();
   const goBack = () => {
     history.goBack();
@@ -101,6 +106,7 @@ function MiscInfo() {
         />
       </InputGroup>
       <Button onClick={goBack}>Précédent</Button>
+      <Button onClick={sendDatas}>send to Redux</Button>
 
       <Button
         tag={Link}
@@ -118,4 +124,4 @@ function MiscInfo() {
   );
 }
 
-export default MiscInfo;
+export default connect()(MiscInfo);

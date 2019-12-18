@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { FormGroup, Label, Input, Col, Button } from "reactstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import { connect } from "react-redux";
 
-function CompanyInfo() {
+function CompanyInfo({ dispatch }) {
   const location = useLocation();
   const [values, setValues] = useState({});
   const [previousValues, setPreviousValues] = useState(location);
@@ -16,7 +17,11 @@ function CompanyInfo() {
         e.target.nodeName === "TEXTAREA" ? e.target.value : e.target.checked
     });
   };
-
+  const sendDatas = () => {
+    if (values) {
+      dispatch({ type: "COMPANY_EVENT_CHOICE", payload: values });
+    }
+  };
   const history = useHistory();
 
   const goBack = () => {
@@ -117,6 +122,7 @@ function CompanyInfo() {
         </Col>
       </FormGroup>
       <Button onClick={goBack}>Précédent</Button>
+      <Button onClick={sendDatas}>send to Redux</Button>
 
       <Button
         tag={Link}
@@ -134,4 +140,4 @@ function CompanyInfo() {
   );
 }
 
-export default CompanyInfo;
+export default connect()(CompanyInfo);

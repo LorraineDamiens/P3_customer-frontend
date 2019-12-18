@@ -1,9 +1,25 @@
 import React, { useState } from "react";
-import { Col, Row, Form, FormGroup, Label, Input, Container } from "reactstrap";
-import { Link } from "react-router-dom";
+import {
+  Col,
+  Row,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Container,
+  Button
+} from "reactstrap";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 
-function ContactInfo() {
+function ContactInfo({ dispatch }) {
   const [values, setValues] = useState({});
+  const history = useHistory();
+
+  const sendDatas = pathname => {
+    dispatch({ type: "ADD_CONTACT_INFOS", payload: values });
+    history.push(pathname);
+  };
 
   const handleChange = e => {
     setValues({
@@ -76,26 +92,10 @@ function ContactInfo() {
           />
         </FormGroup>
       </Form>
-      <Link
-        to={{
-          pathname: "/company",
-          state: values
-        }}
-      >
-        Je suis un professionnel
-      </Link>
-      <Link
-        to={{
-          pathname: "/customer",
-          state: {
-            ...values
-          }
-        }}
-      >
-        Je suis un particulier
-      </Link>
+      <Button onClick={() => sendDatas("/customer")}>I'm a customer</Button>
+      <Button onClick={() => sendDatas("/company")}>I'm a company</Button>
     </Container>
   );
 }
 
-export default ContactInfo;
+export default connect()(ContactInfo);
