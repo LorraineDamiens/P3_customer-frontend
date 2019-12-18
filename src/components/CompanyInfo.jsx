@@ -33,9 +33,9 @@ function CompanyInfo() {
           <Col>
             <Input
               type="textarea"
-              name="name"
-              id="text"
-              value={values.name}
+              name="companyName"
+              id="companyName"
+              value={values.companyName}
               onChange={handleChange}
             />
           </Col>
@@ -45,9 +45,9 @@ function CompanyInfo() {
           <Col>
             <Input
               type="textarea"
-              name="function"
-              id="text"
-              value={values.function}
+              name="companyFunction"
+              id="companyFunction"
+              value={values.companyFunction}
               onChange={handleChange}
             />
           </Col>
@@ -113,20 +113,6 @@ function CompanyInfo() {
             <Label check>
               <Input type="checkbox" id="checkbox" name="congres" /> Congrès
             </Label>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="textarea" sm={2}>
-              Autres
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="textarea"
-                name="textarea"
-                id="text"
-                value={values.textarea}
-                onChange={handleChange}
-              />
-            </Col>
           </FormGroup>
         </Col>
       </FormGroup>

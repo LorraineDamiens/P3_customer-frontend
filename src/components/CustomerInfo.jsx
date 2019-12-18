@@ -8,8 +8,6 @@ function CustomerInfo() {
   const [previousValues, setPreviousValues] = useState(location);
 
   const handleChange = e => {
-    console.log(e.target.nodeName);
-
     setValues({
       ...values,
       [e.target.name]:
@@ -50,20 +48,6 @@ function CustomerInfo() {
               />{" "}
               Soirée
             </Label>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="text" sm={2}>
-              Autres
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="textarea"
-                name="text"
-                id="text"
-                value={values.text}
-                onChange={handleChange}
-              />
-            </Col>
           </FormGroup>
         </Col>
       </FormGroup>

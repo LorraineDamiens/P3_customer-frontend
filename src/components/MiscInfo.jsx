@@ -33,9 +33,9 @@ function MiscInfo() {
         </InputGroupAddon>
         <Input
           type="text"
-          name="guest"
+          name="nbGuests"
           placeholder="nombre"
-          value={values.guest}
+          value={values.nbGuests}
           onChange={handleChange}
         />
       </InputGroup>
@@ -85,6 +85,18 @@ function MiscInfo() {
           name="city"
           placeholder="ville"
           value={values.city}
+          onChange={handleChange}
+        />
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Autres</InputGroupText>
+        </InputGroupAddon>
+        <Input
+          type="textarea"
+          name="comment"
+          placeholder="commentaires"
+          value={values.comment}
           onChange={handleChange}
         />
       </InputGroup>

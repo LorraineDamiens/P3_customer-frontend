@@ -10,15 +10,17 @@ const ServiceCard = ({ color, name, buttonColor, types }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <Col xs="6">
-      <Card body inverse color={color} style={{ height: "150px" }}>
-        <CardTitle> {name}</CardTitle>
-        <Button color={buttonColor} onClick={toggle}>
-          Sélectionner
-        </Button>
-        <MyModal isOpen={isOpen} toggle={toggle} types={types} />
-      </Card>
-    </Col>
+    <>
+      <Col xs="6">
+        <Card body inverse color={color} style={{ height: "150px" }}>
+          <CardTitle> {name}</CardTitle>
+          <Button color={buttonColor} onClick={toggle}>
+            Sélectionner
+          </Button>
+          <MyModal isOpen={isOpen} toggle={toggle} types={types} />
+        </Card>
+      </Col>
+    </>
   );
 };
 

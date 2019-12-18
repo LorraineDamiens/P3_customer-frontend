@@ -18,14 +18,14 @@ function ContactInfo() {
         <Row form>
           <Col>
             <FormGroup row>
-              <Label for="firstname">Prénom</Label>
+              <Label for="clientFirstname">Prénom</Label>
               <Col>
                 <Input
                   type="text"
-                  name="firstname"
-                  id="firstname"
+                  name="clientFirstname"
+                  id="clientFirstname"
                   placeholder="prénom"
-                  value={values.firstname}
+                  value={values.clientFirstname}
                   onChange={handleChange}
                 />
               </Col>
@@ -34,16 +34,16 @@ function ContactInfo() {
 
           <Col>
             <FormGroup row>
-              <Label for="lastname" xs="2">
+              <Label for="clientLastname" xs="2">
                 Nom
               </Label>
               <Col xs="10">
                 <Input
                   type="text"
-                  name="lastname"
-                  id="lastname"
+                  name="clientLastname"
+                  id="clientLastname"
                   placeholder="nom"
-                  value={values.lastname}
+                  value={values.clientLastname}
                   onChange={handleChange}
                 />
               </Col>
@@ -53,25 +53,25 @@ function ContactInfo() {
 
         <FormGroup>
           <FormGroup>
-            <Label for="email">Email</Label>
+            <Label for="clientEmail">Email</Label>
             <Input
               type="email"
-              name="email"
-              id="email"
+              name="clientEmail"
+              id="clientEmail"
               placeholder="email"
-              value={values.email}
+              value={values.clientEmail}
               onChange={handleChange}
             />
           </FormGroup>
         </FormGroup>
         <FormGroup>
-          <Label for="phone">Téléphone</Label>
+          <Label for="clientTel">Téléphone</Label>
           <Input
             type="text"
-            name="phone"
-            id="phone"
+            name="clientTel"
+            id="clientTel"
             placeholder="téléphone"
-            value={values.phone}
+            value={values.clientTel}
             onChange={handleChange}
           />
         </FormGroup>
