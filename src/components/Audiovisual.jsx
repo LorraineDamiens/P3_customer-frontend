@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
-import { audiovisual } from "../datas";
+import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 
@@ -33,7 +33,7 @@ function Audiovisual({ dispatch }) {
         <CardTitle>Audiovisuel et Com</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {audiovisual.activities.map(audiovisual => {
+          {services.audiovisual.activities.map(audiovisual => {
             return (
               <>
                 <input

@@ -11,24 +11,12 @@ function Confirmation({
   reception,
   audiovisual,
   restaurants,
-  staff
+  staff,
+  store
 }) {
   const post = () => {
     axios
-      .post(
-        "http://localhost:8089/api/orders",
-        {
-          contact,
-          event,
-          misc,
-          animations,
-          reception,
-          audiovisual,
-          restaurants,
-          staff
-        },
-        {}
-      )
+      .post("http://localhost:8089/api/orders", store, {})
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
@@ -41,7 +29,7 @@ function Confirmation({
 }
 
 const mapStateToProps = state => {
-  return {
+  const store = {
     companyName: state.companyName,
     companyFunction: state.companyFunction,
     eventType: state.eventType,
@@ -53,7 +41,7 @@ const mapStateToProps = state => {
     comment: state.comment,
     services: [
       {
-        type: state.type,
+        services: state.services,
         activities: state.activities,
         style: state.style
       }
@@ -63,6 +51,9 @@ const mapStateToProps = state => {
     clientEmail: state.clientEmail,
     clientTel: state.clientTel,
     clientType: state.clientType
+  };
+  return {
+    store
   };
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
-import { staff } from "../datas";
+import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 
@@ -33,7 +33,7 @@ function Staff({ dispatch }) {
         <CardTitle>Staff</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {staff.activities.map(staff => {
+          {services.staff.activities.map(staff => {
             return (
               <>
                 <input

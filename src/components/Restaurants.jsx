@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
-import { restaurants } from "../datas";
+import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 
@@ -40,7 +40,7 @@ function Restaurants({ dispatch }) {
         <CardTitle>Traiteur et boisson</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {restaurants.style.map(restaurants => {
+          {services.restaurants.style.map(restaurants => {
             return (
               <>
                 <input
@@ -54,16 +54,16 @@ function Restaurants({ dispatch }) {
           })}
           <input
             type="radio"
-            checked={serviceAtTable === restaurants.serviceAtTable[0]}
+            checked={serviceAtTable === serviceAtTable[0]}
             onChange={handleRadioCheck}
-            name={restaurants.serviceAtTable[0]}
+            name={serviceAtTable[0]}
           />{" "}
           Service à Table
           <input
             type="radio"
-            checked={serviceAtTable === restaurants.serviceAtTable[1]}
+            checked={serviceAtTable === serviceAtTable[1]}
             onChange={handleRadioCheck}
-            name={restaurants.serviceAtTable[1]}
+            name={serviceAtTable[1]}
           />{" "}
           Debout
         </MyModal>

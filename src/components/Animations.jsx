@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
-import { animations } from "../datas";
+import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 
@@ -33,7 +33,7 @@ function Animations({ dispatch }) {
         <CardTitle>Animations</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {animations.style.map(anim => {
+          {services.animations.style.map(anim => {
             return (
               <>
                 <input

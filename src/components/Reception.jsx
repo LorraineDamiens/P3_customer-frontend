@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
-import { reception } from "../datas";
+import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 
@@ -41,7 +41,7 @@ function Reception({ dispatch }) {
         <CardTitle>Lieu</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {reception.style.map(reception => {
+          {services.reception.style.map(reception => {
             return (
               <>
                 <input
@@ -53,20 +53,20 @@ function Reception({ dispatch }) {
               </>
             );
           })}
-          <input
+          {/*  <input
             type="radio"
-            checked={inOrOut === reception.fitForOutdoor[0]}
+            checked={inOrOut === fitForOutdoor[0]}
             onChange={handleRadioCheck}
-            name={reception.fitForOutdoor[0]}
+            name={fitForOutdoor[0]}
           />{" "}
           Intérieur
           <input
             type="radio"
             checked={inOrOut === reception.fitForOutdoor[1]}
             onChange={handleRadioCheck}
-            name={reception.fitForOutdoor[1]}
+            name={fitForOutdoor[1]}
           />{" "}
-          Extérieur
+          Extérieur */}
         </MyModal>
       </Card>
     </Col>
