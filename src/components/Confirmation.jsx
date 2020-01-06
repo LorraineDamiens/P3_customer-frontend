@@ -33,22 +33,36 @@ function Confirmation({
       .catch(err => console.log(err));
   };
   return (
-    <div>
+    <>
+      <h1> Récapitulatif de votre demande</h1>
       <Button onClick={post}>Envoyer votre demande</Button>
-    </div>
+    </>
   );
 }
 
 const mapStateToProps = state => {
   return {
-    contact: state.contact,
-    event: state.event,
-    misc: state.misc,
-    animations: state.animations,
-    reception: state.reception,
-    restaurants: state.restaurants,
-    audiovisual: state.audiovisual,
-    staff: state.staff
+    companyName: state.companyName,
+    companyFunction: state.companyFunction,
+    eventType: state.eventType,
+    nbGuests: state.nbGuests,
+    budget: state.budget,
+    date: state.date,
+    region: state.region,
+    city: state.city,
+    comment: state.comment,
+    services: [
+      {
+        type: state.type,
+        activities: state.activities,
+        style: state.style
+      }
+    ],
+    clientName: state.clientName,
+    clientFirstname: state.clientFirstname,
+    clientEmail: state.clientEmail,
+    clientTel: state.clientTel,
+    clientType: state.clientType
   };
 };
 

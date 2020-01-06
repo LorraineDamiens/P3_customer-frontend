@@ -1,6 +1,18 @@
 import React, { useState } from "react";
-import { FormGroup, Label, Input, Col, Button } from "reactstrap";
-import { useHistory, Link, useLocation } from "react-router-dom";
+import {
+  FormGroup,
+  Label,
+  Input,
+  Col,
+  Button,
+  InputGroup,
+  Card,
+  CardHeader,
+  CardBody,
+  CardText,
+  Row
+} from "reactstrap";
+import { useHistory, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
 function CustomerInfo({ dispatch }) {
@@ -30,50 +42,50 @@ function CustomerInfo({ dispatch }) {
   };
   return (
     <>
-      <FormGroup tag="fieldset" row>
-        <legend className="col-form-label col-sm-2">
-          Si vous êtes un particulier:
-        </legend>
-        <Col sm={10}>
-          <FormGroup check>
-            <Label check>
-              <Input
-                type="checkbox"
-                id="checkbox"
-                name="mariage"
-                onClick={handleChange}
-              />{" "}
-              Mariage
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input
-                type="checkbox"
-                id="checkbox"
-                name="soiree"
-                onClick={handleChange}
-              />{" "}
-              Soirée
-            </Label>
-          </FormGroup>
-        </Col>
-      </FormGroup>
-      <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
-      <Button onClick={goBack}>Précédent</Button>
-      {/* <Button
-        tag={Link}
-        to={{
-          pathname: "/misc",
-          state: {
-            ...values,
-            ...previousValues
-          }
-        }}
-      >
-        Continuer
-      </Button>
- */}{" "}
+      <Row>
+        <Card className="custform">
+          <CardHeader>Si vous êtes un particulier:</CardHeader>
+          <CardBody>
+            <CardText>
+              <Col>
+                <FormGroup check>
+                  <Label check>
+                    <Input
+                      type="checkbox"
+                      id="checkbox"
+                      name="eventType"
+                      onClick={handleChange}
+                    />{" "}
+                    Mariage
+                  </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input
+                      type="checkbox"
+                      id="checkbox"
+                      name="eventType"
+                      onClick={handleChange}
+                    />{" "}
+                    Soirée
+                  </Label>
+                </FormGroup>
+                <InputGroup>
+                  <Input
+                    type="textarea"
+                    name="comments"
+                    placeholder="Autres"
+                    value={values.comment}
+                    onChange={handleChange}
+                  />
+                </InputGroup>
+              </Col>
+            </CardText>
+            <Button onClick={goBack}>Précédent</Button>
+            <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
+          </CardBody>
+        </Card>
+      </Row>
     </>
   );
 }
