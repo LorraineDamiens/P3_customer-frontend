@@ -3,6 +3,7 @@ import { Card, CardTitle, Button, Col } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
+import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 
 function Restaurants({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +28,19 @@ function Restaurants({ dispatch }) {
     setserviceAtTable(e.target.name);
   };
 
+  const handleChange = e => {
+    dispatch({
+      type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
+      payload: {
+        type: "restaurants",
+        activity: e.target.name
+      }
+    });
+  };
+
   const sendDatas = () => {
     dispatch({
-      type: "RESTAURANTS",
+      // type: ADD_RESTAURANTS,
       payload: { selection: selected, preference: serviceAtTable }
     });
   };
@@ -46,7 +57,7 @@ function Restaurants({ dispatch }) {
                 <input
                   type="checkbox"
                   name={restaurants.name}
-                  onChange={e => data(e, restaurants)}
+                  onChange={handleChange}
                 />{" "}
                 {restaurants.name}
               </>

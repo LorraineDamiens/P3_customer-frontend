@@ -13,9 +13,9 @@ function MyModal({ isOpen, toggle, dispatch, children }) {
         {children}
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>
-            Annuler
+            Fermer
           </Button>
-          <Button onClick={handleClick}>send to Redux</Button>
+          <Button onClick={handleClick}>Valider</Button>
         </ModalFooter>
       </Modal>
     </>

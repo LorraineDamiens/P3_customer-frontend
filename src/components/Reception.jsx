@@ -3,6 +3,7 @@ import { Card, CardTitle, Button, Col } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
+import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 
 function Reception({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,10 +28,19 @@ function Reception({ dispatch }) {
   const handleRadioCheck = e => {
     setInOrOut(e.target.name);
   };
+  const handleChange = e => {
+    dispatch({
+      type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
+      payload: {
+        type: "reception",
+        activity: e.target.name
+      }
+    });
+  };
 
   const sendDatas = () => {
     dispatch({
-      type: "RECEPTION",
+      // type: "RECEPTION",
       payload: { selection: selected, preference: inOrOut }
     });
   };
@@ -47,7 +57,7 @@ function Reception({ dispatch }) {
                 <input
                   type="checkbox"
                   name={reception.name}
-                  onChange={e => data(e, reception)}
+                  onChange={handleChange}
                 />{" "}
                 {reception.name}
               </>

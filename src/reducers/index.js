@@ -5,7 +5,7 @@ import miscReducer from "./miscReducer";
 import contactReducer from "./contactReducer";
 import animationsReducer from "./animationsReducer";
 import receptionReducer from "./receptionReducer";
-import restaurantsReducer from "./restaurantsReducer";
+import servicesReducer from "./servicesReducer";
 import audiovisualReducer from "./audiovisualReducer";
 import staffReducer from "./staffReducer";
 import customerReducer from "./customerReducer";
@@ -91,9 +91,5 @@ export default combineReducers({
   company: companyReducer,
   customer: customerReducer,
   misc: miscReducer,
-  reception: receptionReducer,
-  restaurant: restaurantsReducer,
-  animations: animationsReducer,
-  audiovisual: audiovisualReducer,
-  staff: staffReducer
+  services: servicesReducer
 });

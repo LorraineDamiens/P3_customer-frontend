@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { CUSTOMER_EVENT_CHOICE } from "../reducers/actionTypes";
 
 function CustomerInfo({ dispatch }) {
   const [values, setValues] = useState({});
@@ -33,7 +34,7 @@ function CustomerInfo({ dispatch }) {
   const sendDatas = pathname => {
     if (values) {
       dispatch({
-        type: "CUSTOMER_EVENT_CHOICE",
+        type: CUSTOMER_EVENT_CHOICE,
         payload: {
           comment,
           ...values

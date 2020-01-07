@@ -3,6 +3,7 @@ import { Card, CardTitle, Button, Col } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
+import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 
 function Staff({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +24,21 @@ function Staff({ dispatch }) {
     setIsOpen(!isOpen);
   };
 
+  const handleChange = e => {
+    dispatch({
+      type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
+      payload: {
+        type: "staff",
+        activity: e.target.name
+      }
+    });
+  };
+
   const sendDatas = () => {
-    dispatch({ type: "STAFF", payload: selected });
+    dispatch({
+      // type: "STAFF",
+      payload: selected
+    });
   };
 
   return (
@@ -39,7 +53,7 @@ function Staff({ dispatch }) {
                 <input
                   type="checkbox"
                   name={staff.name}
-                  onChange={e => data(e, staff)}
+                  onChange={handleChange}
                 />{" "}
                 {staff.name}
               </>

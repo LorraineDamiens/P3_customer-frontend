@@ -10,7 +10,6 @@ import {
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { ADD_MISC_INFOS } from "../reducers/actionTypes";
-
 function MiscInfo({ dispatch }) {
   const [values, setValues] = useState({});
 
