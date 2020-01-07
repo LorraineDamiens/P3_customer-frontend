@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
+import staffReducer from "../reducers/staffReducer";
 
 function Confirmation({
   contact,
@@ -11,12 +12,21 @@ function Confirmation({
   reception,
   audiovisual,
   restaurants,
-  staff,
-  store
+  staff
 }) {
   const post = () => {
+    const services = [staff];
+
     axios
-      .post("http://localhost:8089/api/orders", store, {})
+      .post(
+        "http://localhost:8089/api/orders",
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      )
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
@@ -29,31 +39,16 @@ function Confirmation({
 }
 
 const mapStateToProps = state => {
-  const store = {
-    companyName: state.companyName,
-    companyFunction: state.companyFunction,
-    eventType: state.eventType,
-    nbGuests: state.nbGuests,
-    budget: state.budget,
-    date: state.date,
-    region: state.region,
-    city: state.city,
-    comment: state.comment,
-    services: [
-      {
-        services: state.services,
-        activities: state.activities,
-        style: state.style
-      }
-    ],
-    clientName: state.clientName,
-    clientFirstname: state.clientFirstname,
-    clientEmail: state.clientEmail,
-    clientTel: state.clientTel,
-    clientType: state.clientType
-  };
   return {
-    store
+    contact: state.contact,
+    company: state.company,
+    customer: state.customer,
+    misc: state.misc,
+    reception: state.reception,
+    restaurant: state.restaurants,
+    animations: state.animations,
+    audiovisual: state.audiovisual,
+    staff: state.staff
   };
 };
 

@@ -1,8 +1,7 @@
 import React from "react";
-import { useHistory, Link, useLocation } from "react-router-dom";
-import { Container, CardGroup, Button } from "reactstrap";
+import { useHistory, Link } from "react-router-dom";
+import { Container, Button } from "reactstrap";
 
-import SendDatas from "./SendDatas";
 import Animations from "./Animations";
 import Reception from "./Reception";
 import Restaurants from "./Restaurants";

@@ -1,0 +1,5 @@
+export const ADD_ANIMATION = "ADD_ANIMATION";
+export const ADD_AUDIOVISUAL = "ADD_AUDIOVISUAL";
+export const ADD_RECEPTION = "ADD_RECEPTION";
+export const ADD_RESTAURANTS = "ADD_RESTAURANTS";
+export const ADD_STAFF = "ADD_STAFF";

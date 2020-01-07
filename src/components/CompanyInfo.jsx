@@ -12,25 +12,43 @@ import {
   CardText,
   Row
 } from "reactstrap";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 function CompanyInfo({ dispatch }) {
-  const location = useLocation();
   const [values, setValues] = useState({});
-  const [previousValues, setPreviousValues] = useState(location);
+  const [name, setName] = useState("");
+  const [companyFunction, setcompanyFunction] = useState("");
+  const [comment, setComment] = useState("");
+  const events = [
+    { name: "presse", label: "Conférence de presse" },
+    { name: "produit", label: "Lancement de produit" },
+    { name: "cocktail", label: "Cocktail dînatoire" },
+    { name: "prix", label: "Remise de prix" },
+    { name: "anniversaire", label: "Anniversaire d'entreprise" },
+    { name: "build", label: "Team building" },
+    { name: "seminaire", label: "Séminaires" },
+    { name: "congres", label: "Congrès" }
+  ];
 
   const handleChange = e => {
     setValues({
       ...values,
-      [e.target.name]:
-        e.target.nodeName === "TEXTAREA" ? e.target.value : e.target.checked
+      [e.target.name]: e.target.checked
     });
   };
 
   const sendDatas = pathname => {
-    if (values) {
-      dispatch({ type: "COMPANY_EVENT_CHOICE", payload: values });
+    if (values && name && companyFunction) {
+      dispatch({
+        type: "COMPANY_EVENT_CHOICE",
+        payload: {
+          companyName: name,
+          companyFunction,
+          comment,
+          ...values
+        }
+      });
       history.push(pathname);
     }
   };
@@ -47,100 +65,52 @@ function CompanyInfo({ dispatch }) {
           <CardBody>
             <CardText>
               <Col>
-                <FormGroup check>
+                <FormGroup>
                   <Label for="textarea">
                     Nom de la société:
                     <Input
                       type="text"
                       name="companyName"
                       id="companyName"
-                      value={values.companyName}
-                      onChange={handleChange}
-                    />{" "}
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                    />
                   </Label>
                 </FormGroup>
-                <FormGroup check>
+                <FormGroup>
                   <Label for="textarea">
                     Fonction dans la société:
                     <Input
                       type="text"
                       name="companyFunction"
                       id="companyFunction"
-                      value={values.companyFunction}
-                      onChange={handleChange}
+                      value={companyFunction}
+                      onChange={e => setcompanyFunction(e.target.value)}
                     />{" "}
                   </Label>
                 </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      id="checkbox"
-                      name="presse"
-                      onClick={handleChange}
-                    />{" "}
-                    Conférence de presse
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      id="checkbox"
-                      name="produit"
-                      onClick={handleChange}
-                    />{" "}
-                    Lancement de produit
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      id="checkbox"
-                      name="cocktail"
-                      onClick={handleChange}
-                    />{" "}
-                    Cocktail dînatoire
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" id="checkbox" name="prix" /> Remise
-                    de prix
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" id="checkbox" name="anniversaire" />{" "}
-                    Anniversaire d'entreprise
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" id="checkbox" name="building" /> Team
-                    Building
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" id="checkbox" name="seminaires" />{" "}
-                    Séminaires
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" id="checkbox" name="congres" />{" "}
-                    Congrès
-                  </Label>
-                </FormGroup>
+                {events.map(({ name, label }, i) => {
+                  return (
+                    <FormGroup check key={i}>
+                      <Label check>
+                        <Input
+                          type="checkbox"
+                          id="checkbox"
+                          name={name}
+                          onClick={handleChange}
+                        />
+                        {label}
+                      </Label>
+                    </FormGroup>
+                  );
+                })}
                 <InputGroup>
                   <Input
                     type="textarea"
                     name="comments"
                     placeholder="Autres"
-                    value={values.comment}
-                    onChange={handleChange}
+                    value={comment}
+                    onChange={e => setComment(e.target.value)}
                   />
                 </InputGroup>
               </Col>

@@ -1,9 +1,21 @@
+import { combineReducers } from "redux";
+
+import companyReducer from "./companyReducer";
+import miscReducer from "./miscReducer";
+import contactReducer from "./contactReducer";
+import animationsReducer from "./animationsReducer";
+import receptionReducer from "./receptionReducer";
+import restaurantsReducer from "./restaurantsReducer";
+import audiovisualReducer from "./audiovisualReducer";
+import staffReducer from "./staffReducer";
+import customerReducer from "./customerReducer";
+
 const initialState = {
   contact: {},
   event: {}
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case "ADD_CONTACT_INFOS":
@@ -36,6 +48,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         services: { ...state.services, ...payload }
+        // [payload.key]: value
       };
     case "ANIMATIONS":
       return {
@@ -53,7 +66,7 @@ export const reducer = (state = initialState, action) => {
     case "RESTAURANTS":
       return {
         ...state,
-        reception: {
+        restaurant: {
           selection: [...payload.selection],
           preference: payload.preference
         }
@@ -72,3 +85,15 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default combineReducers({
+  contact: contactReducer,
+  company: companyReducer,
+  customer: customerReducer,
+  misc: miscReducer,
+  reception: receptionReducer,
+  restaurant: restaurantsReducer,
+  animations: animationsReducer,
+  audiovisual: audiovisualReducer,
+  staff: staffReducer
+});

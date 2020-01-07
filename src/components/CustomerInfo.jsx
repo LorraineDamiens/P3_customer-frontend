@@ -16,21 +16,29 @@ import { useHistory, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
 function CustomerInfo({ dispatch }) {
-  const location = useLocation();
   const [values, setValues] = useState({});
-  const [previousValues, setPreviousValues] = useState(location);
+  const [comment, setComment] = useState("");
+  const events = [
+    { name: "mariage", label: "Mariage" },
+    { name: "soirée", label: "Soirée" }
+  ];
 
   const handleChange = e => {
     setValues({
       ...values,
-      [e.target.name]:
-        e.target.nodeName === "TEXTAREA" ? e.target.value : e.target.checked
+      [e.target.name]: e.target.checked
     });
   };
 
   const sendDatas = pathname => {
     if (values) {
-      dispatch({ type: "CUSTOMER_EVENT_CHOICE", payload: values });
+      dispatch({
+        type: "CUSTOMER_EVENT_CHOICE",
+        payload: {
+          comment,
+          ...values
+        }
+      });
       history.push(pathname);
     }
   };
@@ -48,35 +56,28 @@ function CustomerInfo({ dispatch }) {
           <CardBody>
             <CardText>
               <Col>
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      id="checkbox"
-                      name="eventType"
-                      onClick={handleChange}
-                    />{" "}
-                    Mariage
-                  </Label>
-                </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      id="checkbox"
-                      name="eventType"
-                      onClick={handleChange}
-                    />{" "}
-                    Soirée
-                  </Label>
-                </FormGroup>
+                {events.map(({ name, label }, i) => {
+                  return (
+                    <FormGroup check key={i}>
+                      <Label check>
+                        <Input
+                          type="checkbox"
+                          id="checkbox"
+                          name={name}
+                          onClick={handleChange}
+                        />{" "}
+                        {label}
+                      </Label>
+                    </FormGroup>
+                  );
+                })}
                 <InputGroup>
                   <Input
                     type="textarea"
                     name="comments"
                     placeholder="Autres"
-                    value={values.comment}
-                    onChange={handleChange}
+                    value={comment}
+                    onChange={e => setComment(e.target.value)}
                   />
                 </InputGroup>
               </Col>

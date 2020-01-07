@@ -3,6 +3,7 @@ import { Card, CardTitle, Button, Col } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
+import { ADD_ANIMATION } from "../reducers/actionTypes";
 
 function Animations({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ function Animations({ dispatch }) {
   };
 
   const sendDatas = () => {
-    dispatch({ type: "ANIMATIONS", payload: selected });
+    dispatch({ type: ADD_ANIMATION, payload: selected });
   };
 
   return (
