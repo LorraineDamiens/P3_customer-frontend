@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
-
 import { services } from "../datas";
 
 import MyModal from "./Modal";

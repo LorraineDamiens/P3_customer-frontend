@@ -1,6 +1,7 @@
 body {
   font-size: 1rem !important;
   text-align: center;
+  background-color: #313b48;
 }
 .miscont {
   width: 50%;
@@ -24,6 +25,7 @@ body {
 
 .btn {
   margin: 3%;
+  background-color: #c7d46f;
 }
 
 .App {

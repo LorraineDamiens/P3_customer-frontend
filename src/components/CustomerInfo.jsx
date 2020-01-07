@@ -12,7 +12,7 @@ import {
   CardText,
   Row
 } from "reactstrap";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 function CustomerInfo({ dispatch }) {

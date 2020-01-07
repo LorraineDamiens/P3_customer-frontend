@@ -15,7 +15,7 @@ function Confirmation({
   staff
 }) {
   const post = () => {
-    const services = [staff];
+    const services = [staff, animations, audiovisual, reception, restaurants];
 
     axios
       .post(
@@ -33,6 +33,7 @@ function Confirmation({
   return (
     <>
       <h1> Récapitulatif de votre demande</h1>
+
       <Button onClick={post}>Envoyer votre demande</Button>
     </>
   );

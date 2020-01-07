@@ -14,13 +14,14 @@ import {
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { ADD_CONTACT_INFOS } from "../reducers/actionTypes";
 
 function ContactInfo({ dispatch }) {
   const [values, setValues] = useState({});
   const history = useHistory();
 
   const sendDatas = pathname => {
-    dispatch({ type: "ADD_CONTACT_INFOS", payload: values });
+    dispatch({ type: ADD_CONTACT_INFOS, payload: values });
     history.push(pathname);
   };
 

@@ -7,13 +7,12 @@ import {
   Button,
   Container
 } from "reactstrap";
-import { useHistory, Link, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { ADD_MISC_INFOS } from "../reducers/actionTypes";
 
 function MiscInfo({ dispatch }) {
-  const location = useLocation();
   const [values, setValues] = useState({});
-  const [previousValues, setPreviousValues] = useState(location);
 
   const handleChange = e => {
     setValues({
@@ -23,7 +22,7 @@ function MiscInfo({ dispatch }) {
   };
   const sendDatas = pathname => {
     if (values) {
-      dispatch({ type: "MISC_INFOS", payload: values });
+      dispatch({ type: ADD_MISC_INFOS, payload: values });
       history.push(pathname);
     }
   };
@@ -112,19 +111,6 @@ function MiscInfo({ dispatch }) {
         <Button onClick={() => sendDatas("/services")}>
           Choisir des prestations
         </Button>
-
-        {/* <Button
-        tag={Link}
-        to={{
-          pathname: "/services",
-          state: {
-            ...values,
-            ...previousValues
-          }
-        }}
-      >
-        Choisir des prestations
-      </Button> */}
       </Container>
     </>
   );
