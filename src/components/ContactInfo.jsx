@@ -9,8 +9,7 @@ import {
   Button,
   Card,
   CardHeader,
-  CardBody,
-  CardText
+  CardBody
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -20,8 +19,8 @@ function ContactInfo({ dispatch }) {
   const [values, setValues] = useState({});
   const history = useHistory();
 
-  const sendDatas = pathname => {
-    dispatch({ type: ADD_CONTACT_INFOS, payload: values });
+  const sendDatas = (pathname, clientType) => {
+    dispatch({ type: ADD_CONTACT_INFOS, payload: { ...values, clientType } });
     history.push(pathname);
   };
 
@@ -38,74 +37,73 @@ function ContactInfo({ dispatch }) {
         <Card className="custform">
           <CardHeader>Formulaire de contact:</CardHeader>
           <CardBody>
-            <CardText>
-              <Col>
-                <Form>
-                  <Row form>
-                    <Col>
-                      <FormGroup row>
-                        <Label for="clientFirstname"></Label>
-                        <Col>
-                          <Input
-                            type="text"
-                            name="clientFirstname"
-                            id="clientFirstname"
-                            placeholder="Prénom"
-                            value={values.clientFirstname}
-                            onChange={handleChange}
-                          />
-                        </Col>
-                      </FormGroup>
-                    </Col>
-
-                    <Col>
-                      <FormGroup row>
-                        <Label for="clientLastname"></Label>
-                        <Col>
-                          <Input
-                            type="text"
-                            name="clientLastname"
-                            id="clientLastname"
-                            placeholder="Nom"
-                            value={values.clientLastname}
-                            onChange={handleChange}
-                          />
-                        </Col>
-                      </FormGroup>
-                    </Col>
-                  </Row>
-
-                  <FormGroup>
-                    <FormGroup>
-                      <Label for="clientEmail"></Label>
-                      <Input
-                        type="email"
-                        name="clientEmail"
-                        id="clientEmail"
-                        placeholder="Email"
-                        value={values.clientEmail}
-                        onChange={handleChange}
-                      />
+            <Col>
+              <Form>
+                <Row form>
+                  <Col>
+                    <FormGroup row>
+                      <Label for="clientFirstname"></Label>
+                      <Col>
+                        <Input
+                          type="text"
+                          name="clientFirstname"
+                          id="clientFirstname"
+                          placeholder="Prénom"
+                          value={values.clientFirstname}
+                          onChange={handleChange}
+                        />
+                      </Col>
                     </FormGroup>
-                  </FormGroup>
+                  </Col>
+
+                  <Col>
+                    <FormGroup row>
+                      <Label for="clientName"></Label>
+                      <Col>
+                        <Input
+                          type="text"
+                          name="clientName"
+                          id="clientName"
+                          placeholder="Nom"
+                          value={values.clientName}
+                          onChange={handleChange}
+                        />
+                      </Col>
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <FormGroup>
                   <FormGroup>
-                    <Label for="clientTel"></Label>
+                    <Label for="clientEmail"></Label>
                     <Input
-                      type="text"
-                      name="clientTel"
-                      id="clientTel"
-                      placeholder="Téléphone"
-                      value={values.clientTel}
+                      type="email"
+                      name="clientEmail"
+                      id="clientEmail"
+                      placeholder="Email"
+                      value={values.clientEmail}
                       onChange={handleChange}
                     />
                   </FormGroup>
-                </Form>
-              </Col>
-            </CardText>
-            <Button onClick={() => sendDatas("/customer")}>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="clientTel"></Label>
+                  <Input
+                    type="text"
+                    name="clientTel"
+                    id="clientTel"
+                    placeholder="Téléphone"
+                    value={values.clientTel}
+                    onChange={handleChange}
+                  />
+                </FormGroup>
+              </Form>
+            </Col>
+
+            <Button onClick={() => sendDatas("/customer", "Particulier")}>
               Je suis un particulier
             </Button>
-            <Button onClick={() => sendDatas("/company")}>
+            <Button onClick={() => sendDatas("/company", "Entreprise")}>
               Je suis une société
             </Button>
           </CardBody>

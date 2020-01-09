@@ -24,16 +24,16 @@ function Restaurants({ dispatch }) {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  const handleRadioCheck = e => {
+  /*  const handleRadioCheck = e => {
     setserviceAtTable(e.target.name);
   };
-
+ */
   const handleChange = e => {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "restaurants",
-        activity: e.target.name
+        type: "restaurant",
+        activities: e.target.name
       }
     });
   };
@@ -41,7 +41,7 @@ function Restaurants({ dispatch }) {
   const sendDatas = () => {
     dispatch({
       // type: ADD_RESTAURANTS,
-      payload: { selection: selected, preference: serviceAtTable }
+      // payload: { selection: selected, preference: serviceAtTable }
     });
   };
 
@@ -63,7 +63,7 @@ function Restaurants({ dispatch }) {
               </>
             );
           })}
-          <input
+          {/* <input
             type="radio"
             checked={serviceAtTable === serviceAtTable[0]}
             onChange={handleRadioCheck}
@@ -76,7 +76,7 @@ function Restaurants({ dispatch }) {
             onChange={handleRadioCheck}
             name={serviceAtTable[1]}
           />{" "}
-          Debout
+          Debout */}
         </MyModal>
       </Card>
     </Col>

@@ -12,11 +12,30 @@ import { connect } from "react-redux";
 import { ADD_MISC_INFOS } from "../reducers/actionTypes";
 function MiscInfo({ dispatch }) {
   const [values, setValues] = useState({});
+  const [date, setDate] = useState("");
+
+  const checkInt = (e, array) => {
+    if (array.some(el => e.target.name === el)) {
+      const value = parseInt(e.target.value, 10);
+      return value;
+    }
+    return e.target.value;
+  };
+
+  const handleDate = e => {
+    setDate(e.target.value);
+    const [year, month, day] = e.target.value.split("-");
+    const date = new Date(year, month, day).toISOString();
+    setValues({
+      ...values,
+      date
+    });
+  };
 
   const handleChange = e => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value
+      [e.target.name]: checkInt(e, ["nbGuests", "budget"])
     });
   };
   const sendDatas = pathname => {
@@ -38,7 +57,7 @@ function MiscInfo({ dispatch }) {
             <InputGroupText>Nombre d'invités</InputGroupText>
           </InputGroupAddon>
           <Input
-            type="text"
+            type="number"
             name="nbGuests"
             placeholder="nombre"
             value={values.nbGuests}
@@ -63,11 +82,11 @@ function MiscInfo({ dispatch }) {
             <InputGroupText>Date de l'évènement</InputGroupText>
           </InputGroupAddon>
           <Input
-            type="text"
+            type="date"
             name="date"
             placeholder="date"
-            value={values.date}
-            onChange={handleChange}
+            value={date}
+            onChange={handleDate}
           />
         </InputGroup>
         <InputGroup>

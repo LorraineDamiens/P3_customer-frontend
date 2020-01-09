@@ -17,34 +17,31 @@ import { connect } from "react-redux";
 import { CUSTOMER_EVENT_CHOICE } from "../reducers/actionTypes";
 
 function CustomerInfo({ dispatch }) {
-  const [values, setValues] = useState({});
-  const [comment, setComment] = useState("");
-  const events = [
+  const [eventType, setEventType] = useState("");
+  const [events] = useState([
     { name: "mariage", label: "Mariage" },
     { name: "soirée", label: "Soirée" }
-  ];
+  ]);
+  const history = useHistory();
 
-  const handleChange = e => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.checked
-    });
+  const handleRadio = e => {
+    setEventType(e.target.id);
+  };
+  const handleInput = e => {
+    setEventType(e.target.value);
   };
 
   const sendDatas = pathname => {
-    if (values) {
+    if (eventType) {
       dispatch({
         type: CUSTOMER_EVENT_CHOICE,
         payload: {
-          comment,
-          ...values
+          eventType
         }
       });
       history.push(pathname);
     }
   };
-
-  const history = useHistory();
 
   const goBack = () => {
     history.goBack();
@@ -55,34 +52,33 @@ function CustomerInfo({ dispatch }) {
         <Card className="custform">
           <CardHeader>Si vous êtes un particulier:</CardHeader>
           <CardBody>
-            <CardText>
-              <Col>
-                {events.map(({ name, label }, i) => {
-                  return (
-                    <FormGroup check key={i}>
-                      <Label check>
-                        <Input
-                          type="checkbox"
-                          id="checkbox"
-                          name={name}
-                          onClick={handleChange}
-                        />{" "}
-                        {label}
-                      </Label>
-                    </FormGroup>
-                  );
-                })}
-                <InputGroup>
-                  <Input
-                    type="textarea"
-                    name="comments"
-                    placeholder="Autres"
-                    value={comment}
-                    onChange={e => setComment(e.target.value)}
-                  />
-                </InputGroup>
-              </Col>
-            </CardText>
+            <Col>
+              {events.map(({ name, label }, i) => {
+                return (
+                  <FormGroup check key={i}>
+                    <Label check>
+                      <Input
+                        type="radio"
+                        id={name}
+                        name="radio"
+                        onClick={handleRadio}
+                      />{" "}
+                      {label}
+                    </Label>
+                  </FormGroup>
+                );
+              })}
+              <InputGroup>
+                <Input
+                  type="text"
+                  name="eventType"
+                  placeholder="Autres"
+                  value={eventType}
+                  onChange={handleInput}
+                />
+              </InputGroup>
+            </Col>
+
             <Button onClick={goBack}>Précédent</Button>
             <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
           </CardBody>

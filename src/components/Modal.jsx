@@ -3,7 +3,6 @@ import { Modal, ModalFooter, Button } from "reactstrap";
 
 function MyModal({ isOpen, toggle, dispatch, children }) {
   const handleClick = () => {
-    dispatch();
     toggle();
   };
 

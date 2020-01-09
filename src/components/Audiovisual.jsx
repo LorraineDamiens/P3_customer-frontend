@@ -29,7 +29,7 @@ function Audiovisual({ dispatch }) {
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
         type: "audiovisual",
-        activity: e.target.name
+        activities: e.target.name
       }
     });
   };

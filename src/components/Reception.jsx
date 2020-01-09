@@ -8,7 +8,7 @@ import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 function Reception({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
-  const [inOrOut, setInOrOut] = useState("");
+  // const [inOrOut, setInOrOut] = useState("");
 
   const data = (e, obj) => {
     let nextState = [...selected];
@@ -25,15 +25,15 @@ function Reception({ dispatch }) {
     setIsOpen(!isOpen);
   };
 
-  const handleRadioCheck = e => {
+  /* const handleRadioCheck = e => {
     setInOrOut(e.target.name);
-  };
+  }; */
   const handleChange = e => {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
         type: "reception",
-        activity: e.target.name
+        activities: e.target.name
       }
     });
   };
@@ -41,7 +41,7 @@ function Reception({ dispatch }) {
   const sendDatas = () => {
     dispatch({
       // type: "RECEPTION",
-      payload: { selection: selected, preference: inOrOut }
+      // payload: { selection: selected, preference: inOrOut }
     });
   };
 

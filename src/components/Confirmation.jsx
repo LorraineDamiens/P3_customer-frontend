@@ -1,32 +1,53 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
 import staffReducer from "../reducers/staffReducer";
 
-function Confirmation({
-  contact,
-  event,
-  misc,
-  animations,
-  reception,
-  audiovisual,
-  restaurants,
-  staff
-}) {
-  const post = () => {
-    const services = [staff, animations, audiovisual, reception, restaurants];
+function Confirmation({ contact, company, misc, customer, services }) {
+  const [recap, setRecap] = useState({
+    ...contact,
+    ...misc,
+    ...company,
+    ...customer,
+    services
+  });
+  useEffect(() => {
+    console.log(recap);
+  }, []);
 
-    axios
-      .post(
-        "http://localhost:8089/api/orders",
-        {},
+  const post = () => {
+    const recap2 = {
+      companyName: "Ma boite",
+      companyFunction: "PDG",
+      eventType: "conférence de presse",
+      nbGuests: 3,
+      budget: 300,
+      date: "2019-12-17T12:26:33.007Z",
+      region: "Aquitaine",
+      city: "Prigonrieux",
+      comment: "nice",
+      status: "En cours",
+      services: [
         {
-          headers: {
-            "Content-Type": "application/json"
-          }
+          type: "Audiovisual",
+          activities: "Son",
+          description: "Boom boom dans les oreilles"
         }
-      )
+      ],
+      clientName: "MONTANA",
+      clientFirstname: "Tony",
+      clientEmail: "bubu@baba.com",
+      clientTel: "0836656565",
+      clientType: "Particulier"
+    };
+    axios
+      .post("http://localhost:8089/api/orders", recap, {
+        headers: {
+          "Content-Type": "application/ld+json",
+          Accept: "application/json"
+        }
+      })
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
@@ -45,11 +66,7 @@ const mapStateToProps = state => {
     company: state.company,
     customer: state.customer,
     misc: state.misc,
-    reception: state.reception,
-    restaurant: state.restaurants,
-    animations: state.animations,
-    audiovisual: state.audiovisual,
-    staff: state.staff
+    services: state.services
   };
 };
 

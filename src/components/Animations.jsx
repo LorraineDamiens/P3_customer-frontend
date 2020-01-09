@@ -29,7 +29,7 @@ function Animations({ dispatch }) {
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
         type: "animation",
-        activity: e.target.name
+        activities: e.target.name
       }
     });
   };
