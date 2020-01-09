@@ -1,6 +1,10 @@
 import { COMPANY_EVENT_CHOICE } from "./actionTypes";
 
-const initialState = {};
+const initialState = {
+  mariage: false,
+  soiree: false,
+  comment: ""
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
