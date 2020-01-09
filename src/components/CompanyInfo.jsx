@@ -8,7 +8,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardText,
   Row,
   InputGroup
 } from "reactstrap";
@@ -22,14 +21,14 @@ function CompanyInfo({ dispatch }) {
   const [name, setName] = useState("");
   const [companyFunction, setcompanyFunction] = useState("");
   const [events] = useState([
-    { name: "presse", label: "Conférence de presse" },
-    { name: "produit", label: "Lancement de produit" },
-    { name: "cocktail", label: "Cocktail dînatoire" },
-    { name: "prix", label: "Remise de prix" },
-    { name: "anniversaire", label: "Anniversaire d'entreprise" },
-    { name: "build", label: "Team building" },
-    { name: "seminaire", label: "Séminaires" },
-    { name: "congres", label: "Congrès" }
+    { name: " Conférence de presse", label: "Conférence de presse" },
+    { name: "Lancement de produit", label: "Lancement de produit" },
+    { name: "Cocktail dînatoire", label: "Cocktail dînatoire" },
+    { name: "Remise de prix", label: "Remise de prix" },
+    { name: "Anniversaire d'entreprise", label: "Anniversaire d'entreprise" },
+    { name: "Team building", label: "Team building" },
+    { name: "Séminaires", label: "Séminaires" },
+    { name: "Congrès", label: "Congrès" }
   ]);
 
   const history = useHistory();

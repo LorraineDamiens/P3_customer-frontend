@@ -17,30 +17,6 @@ function Confirmation({ contact, company, misc, customer, services }) {
   }, []);
 
   const post = () => {
-    const recap2 = {
-      companyName: "Ma boite",
-      companyFunction: "PDG",
-      eventType: "conférence de presse",
-      nbGuests: 3,
-      budget: 300,
-      date: "2019-12-17T12:26:33.007Z",
-      region: "Aquitaine",
-      city: "Prigonrieux",
-      comment: "nice",
-      status: "En cours",
-      services: [
-        {
-          type: "Audiovisual",
-          activities: "Son",
-          description: "Boom boom dans les oreilles"
-        }
-      ],
-      clientName: "MONTANA",
-      clientFirstname: "Tony",
-      clientEmail: "bubu@baba.com",
-      clientTel: "0836656565",
-      clientType: "Particulier"
-    };
     axios
       .post("http://localhost:8089/api/orders", recap, {
         headers: {

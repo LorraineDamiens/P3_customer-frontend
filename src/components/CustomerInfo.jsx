@@ -9,7 +9,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardText,
   Row
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
