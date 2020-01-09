@@ -36,7 +36,7 @@ function Audiovisual({ dispatch }) {
   const sendDatas = () => {
     dispatch({
       // type: "AUDIOVISUAL",
-      payload: selected
+      payload: { selection: selected }
     });
   };
 
@@ -52,7 +52,7 @@ function Audiovisual({ dispatch }) {
                 <input
                   type="checkbox"
                   name={audiovisual.name}
-                  onChange={{ handleChange }}
+                  onChange={handleChange}
                 />{" "}
                 {audiovisual.name}
               </>
