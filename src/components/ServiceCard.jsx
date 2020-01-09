@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardTitle, Button, Col } from "reactstrap";
+import { services } from "../datas";
 
 import MyModal from "./Modal";
 
@@ -12,12 +13,20 @@ const ServiceCard = ({ color, name, buttonColor, types }) => {
   return (
     <>
       <Col xs="6">
-        <Card body inverse color={color} style={{ height: "150px" }}>
+        <Card
+          className="servicescard"
+          body
+          inverse
+          color={color}
+          style={{ height: "150px" }}
+        >
           <CardTitle> {name}</CardTitle>
           <Button color={buttonColor} onClick={toggle}>
             Sélectionner
           </Button>
-          <MyModal isOpen={isOpen} toggle={toggle} types={types} />
+          <MyModal isOpen={isOpen} toggle={toggle} types={types}>
+            {services[0].component}
+          </MyModal>
         </Card>
       </Col>
     </>

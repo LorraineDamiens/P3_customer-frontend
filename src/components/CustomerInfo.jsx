@@ -1,72 +1,91 @@
 import React, { useState } from "react";
-import { FormGroup, Label, Input, Col, Button } from "reactstrap";
-import { useHistory, Link, useLocation } from "react-router-dom";
+import {
+  FormGroup,
+  Label,
+  Input,
+  Col,
+  Button,
+  InputGroup,
+  Card,
+  CardHeader,
+  CardBody,
+  CardText,
+  Row
+} from "reactstrap";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { CUSTOMER_EVENT_CHOICE } from "../reducers/actionTypes";
 
-function CustomerInfo() {
-  const location = useLocation();
-  const [values, setValues] = useState({});
-  const [previousValues, setPreviousValues] = useState(location);
+function CustomerInfo({ dispatch }) {
+  const [eventType, setEventType] = useState("");
+  const [events] = useState([
+    { name: "mariage", label: "Mariage" },
+    { name: "soirée", label: "Soirée" }
+  ]);
+  const history = useHistory();
 
-  const handleChange = e => {
-    setValues({
-      ...values,
-      [e.target.name]:
-        e.target.nodeName === "TEXTAREA" ? e.target.value : e.target.checked
-    });
+  const handleRadio = e => {
+    setEventType(e.target.id);
+  };
+  const handleInput = e => {
+    setEventType(e.target.value);
   };
 
-  const history = useHistory();
+  const sendDatas = pathname => {
+    if (eventType) {
+      dispatch({
+        type: CUSTOMER_EVENT_CHOICE,
+        payload: {
+          eventType
+        }
+      });
+      history.push(pathname);
+    }
+  };
 
   const goBack = () => {
     history.goBack();
   };
   return (
     <>
-      <FormGroup tag="fieldset" row>
-        <legend className="col-form-label col-sm-2">
-          Si vous êtes un particulier:
-        </legend>
-        <Col sm={10}>
-          <FormGroup check>
-            <Label check>
-              <Input
-                type="checkbox"
-                id="checkbox"
-                name="mariage"
-                onClick={handleChange}
-              />{" "}
-              Mariage
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input
-                type="checkbox"
-                id="checkbox"
-                name="soiree"
-                onClick={handleChange}
-              />{" "}
-              Soirée
-            </Label>
-          </FormGroup>
-        </Col>
-      </FormGroup>
-      <Button onClick={goBack}>Précédent</Button>
+      <Row>
+        <Card className="custform">
+          <CardHeader>Si vous êtes un particulier:</CardHeader>
+          <CardBody>
+            <Col>
+              {events.map(({ name, label }, i) => {
+                return (
+                  <FormGroup check key={i}>
+                    <Label check>
+                      <Input
+                        type="radio"
+                        id={name}
+                        name="radio"
+                        onClick={handleRadio}
+                      />{" "}
+                      {label}
+                    </Label>
+                  </FormGroup>
+                );
+              })}
+              <InputGroup>
+                <Input
+                  type="text"
+                  name="eventType"
+                  placeholder="Autres"
+                  value={eventType}
+                  onChange={handleInput}
+                />
+              </InputGroup>
+            </Col>
 
-      <Button
-        tag={Link}
-        to={{
-          pathname: "/misc",
-          state: {
-            ...values,
-            ...previousValues
-          }
-        }}
-      >
-        Continuer
-      </Button>
+            <Button onClick={goBack}>Précédent</Button>
+            <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
+          </CardBody>
+        </Card>
+      </Row>
     </>
   );
 }
 
-export default CustomerInfo;
+export default connect()(CustomerInfo);

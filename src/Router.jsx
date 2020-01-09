@@ -5,6 +5,7 @@ import CompanyInfo from "./components/CompanyInfo";
 import CustomerInfo from "./components/CustomerInfo";
 import MiscInfo from "./components/MiscInfo";
 import CardList from "./components/CardList";
+import Confirmation from "./components/Confirmation";
 
 function Router() {
   return (
@@ -15,6 +16,7 @@ function Router() {
         <Route path="/customer" component={CustomerInfo} />
         <Route path="/misc" component={MiscInfo} />
         <Route path="/services" component={CardList} />
+        <Route path="/confirmation" component={Confirmation} />
       </Switch>
     </BrowserRouter>
   );
