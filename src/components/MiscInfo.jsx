@@ -118,7 +118,7 @@ function MiscInfo({ dispatch }) {
             <InputGroupText>Autres</InputGroupText>
           </InputGroupAddon>
           <Input
-            type="text"
+            type="textarea"
             name="comment"
             placeholder="commentaires"
             value={values.comment}
