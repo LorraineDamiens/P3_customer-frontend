@@ -10,6 +10,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { ADD_MISC_INFOS } from "../reducers/actionTypes";
+
 function MiscInfo({ dispatch }) {
   const [values, setValues] = useState({});
   const [date, setDate] = useState("");
@@ -59,7 +60,7 @@ function MiscInfo({ dispatch }) {
           <Input
             type="number"
             name="nbGuests"
-            placeholder="nombre"
+            placeholder="Nombre d'invités"
             value={values.nbGuests}
             onChange={handleChange}
           />
@@ -69,9 +70,9 @@ function MiscInfo({ dispatch }) {
             <InputGroupText>Budget</InputGroupText>
           </InputGroupAddon>
           <Input
-            type="text"
+            type="number"
             name="budget"
-            placeholder="budget"
+            placeholder="Budget"
             value={values.budget}
             onChange={handleChange}
           />
@@ -84,7 +85,7 @@ function MiscInfo({ dispatch }) {
           <Input
             type="date"
             name="date"
-            placeholder="date"
+            placeholder="Date"
             value={date}
             onChange={handleDate}
           />
@@ -96,7 +97,7 @@ function MiscInfo({ dispatch }) {
           <Input
             type="text"
             name="region"
-            placeholder="région"
+            placeholder="Région"
             value={values.region}
             onChange={handleChange}
           />
@@ -108,7 +109,7 @@ function MiscInfo({ dispatch }) {
           <Input
             type="text"
             name="city"
-            placeholder="ville"
+            placeholder="Ville"
             value={values.city}
             onChange={handleChange}
           />
@@ -120,7 +121,7 @@ function MiscInfo({ dispatch }) {
           <Input
             type="textarea"
             name="comment"
-            placeholder="commentaires"
+            placeholder="Commentaires"
             value={values.comment}
             onChange={handleChange}
           />

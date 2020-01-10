@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
-import { Container, Button } from "reactstrap";
+import { Container, Button, Row, Col } from "reactstrap";
 
 import Animations from "./Animations";
 import Reception from "./Reception";
@@ -15,11 +15,14 @@ function CardList() {
   };
   return (
     <Container>
-      <Animations />
-      <Reception />
-      <Restaurants />
-      <Audiovisual />
-      <Staff />
+      <Row>
+        <Animations />
+        <Reception />
+        <Restaurants />
+        <Audiovisual />
+        <Staff />
+      </Row>
+
       <Button onClick={goBack}>Précédent</Button>
 
       <Button tag={Link} to="/confirmation">
