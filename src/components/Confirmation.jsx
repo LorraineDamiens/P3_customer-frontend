@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Button, Spinner} from "reactstrap";
-import staffReducer from "../reducers/staffReducer";
 import AlertWindow from "./Alert";
 
 function Confirmation({ contact, company, misc, customer, services }) {
@@ -13,8 +12,11 @@ function Confirmation({ contact, company, misc, customer, services }) {
     ...customer,
     services
   });
+
   const [alert, setAlert] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+
+
   useEffect(() => {
     console.log(recap);
   }, []);
@@ -29,13 +31,18 @@ function Confirmation({ contact, company, misc, customer, services }) {
         }
       })
       .then(res => {console.log(res);setAlert(true);setIsLoading(false)})
+
+      .then(res => {console.log(res);setalert(true)})
+
       .catch(err => console.log(err));
   };
   return (
     <>
+
       <h1> Récapitulatif de votre demande</h1>     
       
       {alert ? <AlertWindow/> : (<>{isLoading ? <Spinner type="grow" color="success" /> : <Button onClick={post}>Envoyer votre demande</Button>}</>)}
+
     </>
   );
 }
