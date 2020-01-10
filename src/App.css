@@ -11,11 +11,12 @@ body {
 }
 
 .servicescard {
-  margin: 15%;
   padding: 5%;
   border-radius: 20px 0;
 }
-
+.card {
+  margin: 30px;
+}
 .custform {
   width: 50%;
   margin-left: 25vw;
