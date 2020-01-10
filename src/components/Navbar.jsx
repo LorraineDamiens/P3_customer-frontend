@@ -21,9 +21,7 @@ function NavbarTop() {
             <NavLink href="https://poza-evenement.fr/">L'agence POZA</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://github.com/reactstrap/reactstrap">
-              Contact
-            </NavLink>
+            <NavLink href="https://poza-evenement.fr/contact/">Contact</NavLink>
           </NavItem>
         </Nav>
         <NavItem>
