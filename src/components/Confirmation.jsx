@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Button} from "reactstrap";
+import { Button, Spinner} from "reactstrap";
 import staffReducer from "../reducers/staffReducer";
 import AlertWindow from "./Alert";
 
@@ -13,12 +13,14 @@ function Confirmation({ contact, company, misc, customer, services }) {
     ...customer,
     services
   });
-  const [alert, setalert] = useState(false)
+  const [alert, setAlert] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     console.log(recap);
   }, []);
 
   const post = () => {
+    setIsLoading(true);
     axios
       .post("http://localhost:8089/api/orders", recap, {
         headers: {
@@ -26,15 +28,14 @@ function Confirmation({ contact, company, misc, customer, services }) {
           Accept: "application/json"
         }
       })
-      .then(res => {console.log(res);setalert(true)})
+      .then(res => {console.log(res);setAlert(true);setIsLoading(false)})
       .catch(err => console.log(err));
   };
   return (
     <>
-      <h1> Récapitulatif de votre demande</h1>
-
-      <Button onClick={post}>Envoyer votre demande</Button>
-      {alert ? <AlertWindow/> : <></>}
+      <h1> Récapitulatif de votre demande</h1>     
+      
+      {alert ? <AlertWindow/> : (<>{isLoading ? <Spinner type="grow" color="success" /> : <Button onClick={post}>Envoyer votre demande</Button>}</>)}
     </>
   );
 }
