@@ -11,11 +11,12 @@ body {
 }
 
 .servicescard {
-  margin: 15%;
   padding: 5%;
   border-radius: 20px 0;
 }
-
+.card {
+  margin: 30px;
+}
 .custform {
   width: 50%;
   margin-left: 25vw;
@@ -35,6 +36,9 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.alert{
+  background-color: #c7d46f;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
