@@ -5,8 +5,11 @@ import { connect } from "react-redux";
 import { Button } from "reactstrap";
 =======
 import { Button, Spinner} from "reactstrap";
+<<<<<<< HEAD
 import staffReducer from "../reducers/staffReducer";
 >>>>>>> 3236ebe1a15efd50847fd3489c7ce9714843d7af
+=======
+>>>>>>> fbd85b6d204478d55f3597d6a4cbe541739136e9
 import AlertWindow from "./Alert";
 
 function Confirmation({ contact, company, misc, customer, services }) {
@@ -18,11 +21,19 @@ function Confirmation({ contact, company, misc, customer, services }) {
     services
   });
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [alert, setalert] = useState(false);
 =======
   const [alert, setAlert] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 >>>>>>> 3236ebe1a15efd50847fd3489c7ce9714843d7af
+=======
+
+  const [alert, setAlert] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+
+>>>>>>> fbd85b6d204478d55f3597d6a4cbe541739136e9
   useEffect(() => {
     console.log(recap);
   }, []);
@@ -43,11 +54,18 @@ function Confirmation({ contact, company, misc, customer, services }) {
       })
 =======
       .then(res => {console.log(res);setAlert(true);setIsLoading(false)})
+<<<<<<< HEAD
 >>>>>>> 3236ebe1a15efd50847fd3489c7ce9714843d7af
+=======
+
+ 
+
+>>>>>>> fbd85b6d204478d55f3597d6a4cbe541739136e9
       .catch(err => console.log(err));
   };
   return (
     <>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <h1> Récapitulatif de votre demande</h1>
 
@@ -58,6 +76,13 @@ function Confirmation({ contact, company, misc, customer, services }) {
       
       {alert ? <AlertWindow/> : (<>{isLoading ? <Spinner type="grow" color="success" /> : <Button onClick={post}>Envoyer votre demande</Button>}</>)}
 >>>>>>> 3236ebe1a15efd50847fd3489c7ce9714843d7af
+=======
+
+      <h1> Récapitulatif de votre demande</h1>     
+      
+      {alert ? <AlertWindow/> : (<>{isLoading ? <Spinner type="grow" color="success" /> : <Button onClick={post}>Envoyer votre demande</Button>}</>)}
+
+>>>>>>> fbd85b6d204478d55f3597d6a4cbe541739136e9
     </>
   );
 }
