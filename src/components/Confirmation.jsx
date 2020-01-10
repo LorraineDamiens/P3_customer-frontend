@@ -19,11 +19,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
   const [isLoading, setIsLoading] = useState(false)
 
 
-  const [alert, setAlert] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
 
-
->>>>>>> fbd85b6d204478d55f3597d6a4cbe541739136e9
   useEffect(() => {
     console.log(recap);
   }, []);
