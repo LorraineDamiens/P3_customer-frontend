@@ -2,8 +2,7 @@ import { COMPANY_EVENT_CHOICE } from "./actionTypes";
 
 const initialState = {
   mariage: false,
-  soiree: false,
-  comment: ""
+  soiree: false
 };
 
 export default (state = initialState, action) => {
