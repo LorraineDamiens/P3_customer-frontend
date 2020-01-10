@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Button} from "reactstrap";
-import staffReducer from "../reducers/staffReducer";
+import { Button } from "reactstrap";
 import AlertWindow from "./Alert";
 
 function Confirmation({ contact, company, misc, customer, services }) {
@@ -13,7 +12,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
     ...customer,
     services
   });
-  const [alert, setalert] = useState(false)
+  const [alert, setalert] = useState(false);
   useEffect(() => {
     console.log(recap);
   }, []);
@@ -26,7 +25,10 @@ function Confirmation({ contact, company, misc, customer, services }) {
           Accept: "application/json"
         }
       })
-      .then(res => {console.log(res);setalert(true)})
+      .then(res => {
+        console.log(res);
+        setalert(true);
+      })
       .catch(err => console.log(err));
   };
   return (
@@ -34,7 +36,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
       <h1> Récapitulatif de votre demande</h1>
 
       <Button onClick={post}>Envoyer votre demande</Button>
-      {alert ? <AlertWindow/> : <></>}
+      {alert ? <AlertWindow /> : <></>}
     </>
   );
 }

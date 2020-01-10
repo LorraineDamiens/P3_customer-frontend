@@ -37,8 +37,12 @@ body {
   height: 40vmin;
   pointer-events: none;
 }
-.alert{
+.alert {
   background-color: #c7d46f;
+}
+
+h1 {
+  color: white;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

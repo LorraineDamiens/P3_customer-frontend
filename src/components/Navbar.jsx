@@ -23,12 +23,13 @@ function NavbarTop() {
           <NavItem>
             <NavLink href="https://poza-evenement.fr/contact/">Contact</NavLink>
           </NavItem>
+
+          <NavItem>
+            <NavLink href="http://localhost:8001/new">
+              Devenez prestataire
+            </NavLink>
+          </NavItem>
         </Nav>
-        <NavItem>
-          <NavLink href="http://localhost:8001/new">
-            Devenez prestataire
-          </NavLink>
-        </NavItem>
       </Navbar>
     </>
   );
