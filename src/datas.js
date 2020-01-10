@@ -145,7 +145,6 @@ const restaurants = {
     { name: "Déjeuner" },
     { name: "Cocktail déjeunatoire" },
     { name: "Cocktail dinatoire" },
-    { name: "Brunch" },
     { name: "Buffet" },
     { name: "Plateau repas" },
     { name: "Pause gourmande" }
