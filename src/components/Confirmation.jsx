@@ -32,7 +32,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
       })
       .then(res => {console.log(res);setAlert(true);setIsLoading(false)})
 
-      .then(res => {console.log(res);setalert(true)})
+ 
 
       .catch(err => console.log(err));
   };
