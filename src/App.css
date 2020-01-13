@@ -1,13 +1,17 @@
 body {
   font-size: 1rem !important;
   text-align: center;
-  background-color: #313b48;
 }
 a {
   color: white !important;
 }
+
+a:visited {
+  color: #bdd180 !important;
+}
+
 .navbar {
-  background-color: #495666;
+  background-color: #313b48;
   color: white;
 }
 .miscont {
@@ -23,6 +27,7 @@ a {
 }
 .card {
   margin: 30px;
+  border-color: #313b48;
 }
 .custform {
   width: 50%;
@@ -35,7 +40,9 @@ a {
   margin: 3%;
   background-color: #c7d46f;
 }
-
+.btn-secondary:hover {
+  background-color: #313b48;
+}
 .modal .modal-content {
   color: white;
   background: #495666;
