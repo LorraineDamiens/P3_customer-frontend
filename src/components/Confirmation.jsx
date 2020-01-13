@@ -47,7 +47,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
       ) : (
         <>
           {isLoading ? (
-            <Spinner type="grow" color="success" />
+            <Spinner type="grow" />
           ) : (
             <Button onClick={post}>Envoyer votre demande</Button>
           )}

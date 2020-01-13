@@ -1,21 +1,19 @@
-import React from 'react';
-import { Alert } from 'reactstrap';
+import React from "react";
+import { Alert } from "reactstrap";
 
-const AlertWindow = (props) => {
+const AlertWindow = props => {
   return (
     <div>
-      <Alert className="alert" color="success">
+      <Alert className="alert">
         <h4 className="alert-heading">ENVOYE !!</h4>
         <p>
-          Votre Commmande a bien été envoyée, notre équipe va s'occuper de votre demande dans les plus brefs délais.
-          Nous reprendrons contact avec vous par Mail afin de peaufiner les détails.
+          Votre commmande a bien été envoyée. Notre équipe reprendra contact
+          avec vous dans les plus brefs délais.
         </p>
         <hr />
-        <p className="mb-0">
-          Merci pour votre confiance. 
-        </p>
+        <p className="mb-0">Merci pour votre confiance.</p>
         <a className="mb-0 mt-5" href="/">
-          Redirection vers la page principale  
+          Retour à la page d'accueil.
         </a>
       </Alert>
     </div>

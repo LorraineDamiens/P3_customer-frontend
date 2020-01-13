@@ -4,8 +4,10 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 function NavbarTop() {
   return (
     <>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">POZA</NavbarBrand>
+      <Navbar light expand="md">
+        <NavbarBrand href="/">
+          <img src="images/minilogopoza.png" alt="logo poza" />
+        </NavbarBrand>
 
         <Nav className="mr-auto" navbar>
           <NavItem>

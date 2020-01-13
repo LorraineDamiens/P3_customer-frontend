@@ -58,12 +58,12 @@ function Reception({ dispatch }) {
   return (
     <Col xs="6">
       <Card body style={{ height: "150px" }}>
-        <CardTitle>Lieu</CardTitle>
+        <CardTitle>Lieu de réception</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
           <ModalHeader className="header">
             <FontAwesomeIcon classname="icon" icon={faHome} size="4x" />
-            <h2>Lieu </h2>
+            <h2>Lieu de réception </h2>
           </ModalHeader>
           {services.reception.style.map((reception, i) => {
             return (

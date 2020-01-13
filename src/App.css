@@ -3,6 +3,13 @@ body {
   text-align: center;
   background-color: #313b48;
 }
+a {
+  color: white !important;
+}
+.navbar {
+  background-color: #495666;
+  color: white;
+}
 .miscont {
   width: 50%;
   margin-left: 25vw;
@@ -48,6 +55,10 @@ body {
   pointer-events: none;
 }
 .alert {
+  background-color: #c7d46f;
+}
+
+.spinner {
   background-color: #c7d46f;
 }
 h3 {
