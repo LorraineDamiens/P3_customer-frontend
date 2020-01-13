@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Button, Spinner, Table, Card } from "reactstrap";
 
 import AlertWindow from "./Alert";
 
-function Confirmation({ contact, company, misc, customer, services }) {
+function Confirmation() {
+  const company = useSelector(state => state.company);
+  const contact = useSelector(state => state.contact);
+  const customer = useSelector(state => state.customer);
+  const misc = useSelector(state => state.misc);
+  const services = useSelector(state => state.services);
+
   const [recap, setRecap] = useState({
     ...contact,
     ...misc,
@@ -19,7 +25,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log(recap);
+    console.log(company);
   }, []);
 
   const post = () => {
@@ -69,7 +75,7 @@ function Confirmation({ contact, company, misc, customer, services }) {
             </tr>
             <tr>
               <td> Société:</td>
-              <td>{recap.companyName}</td>
+              <td>{company.companyName}</td>
             </tr>
             <tr>
               <td>Nombre d'invités:</td>
@@ -126,14 +132,4 @@ function Confirmation({ contact, company, misc, customer, services }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    contact: state.contact,
-    company: state.company,
-    customer: state.customer,
-    misc: state.misc,
-    services: state.services
-  };
-};
-
-export default connect(mapStateToProps)(Confirmation);
+export default Confirmation;
