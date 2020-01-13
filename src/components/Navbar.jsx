@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  NavbarText
-} from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 
 function NavbarTop() {
   return (

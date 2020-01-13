@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { Card, CardTitle, Button, Col } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  Button,
+  Col,
+  ModalHeader,
+  CustomInput,
+  Row
+} from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 function Reception({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,15 +61,22 @@ function Reception({ dispatch }) {
         <CardTitle>Lieu</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {services.reception.style.map(reception => {
+          <ModalHeader className="header">
+            <FontAwesomeIcon classname="icon" icon={faHome} size="4x" />
+            <h2>Lieu </h2>
+          </ModalHeader>
+          {services.reception.style.map((reception, i) => {
             return (
               <>
-                <input
-                  type="checkbox"
-                  name={reception.name}
-                  onChange={handleChange}
-                />{" "}
-                {reception.name}
+                <Row>
+                  <CustomInput
+                    type="switch"
+                    name={reception.name}
+                    id={i}
+                    onChange={handleChange}
+                  />{" "}
+                  {reception.name}
+                </Row>
               </>
             );
           })}
