@@ -6,7 +6,7 @@ a {
   color: white !important;
 }
 
-a:visited {
+a .navlink :visited {
   color: #bdd180 !important;
 }
 
@@ -69,11 +69,10 @@ a:visited {
   background-color: #c7d46f;
 }
 h3 {
-  color: white;
-  align-content: space-around;
+  color: #495666;
 }
 h1 {
-  color: white;
+  color: #495666;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
