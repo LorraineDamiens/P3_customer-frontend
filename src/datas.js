@@ -100,7 +100,7 @@ import SendDatas from "./components/SendDatas";
   }
 ]; */
 
-const animations = {
+const Animations = {
   style: [
     { name: "Digitale" },
     { name: "Extrème" },
@@ -139,7 +139,7 @@ const animations = {
   fitForOutdoor: ["Intérieur", "Extérieur"]
 };
 
-const restaurants = {
+const Restaurants = {
   style: [
     { name: "Brunch" },
     { name: "Déjeuner" },
@@ -155,7 +155,7 @@ const restaurants = {
   serviceAtTable: ["Debout", "Service à table"]
 };
 
-const audiovisual = {
+const Audiovisual = {
   activities: [
     { name: "DJ" },
     { name: "Orchestre musical" },
@@ -169,7 +169,7 @@ const audiovisual = {
   ]
 };
 
-const staff = {
+const Staff = {
   activities: [
     { name: "Influenceurs/Célébrités" },
     { name: "Speaker/Conférenciers" },
@@ -184,16 +184,16 @@ const staff = {
   ]
 };
 
-const reception = {
+const Reception = {
   style: [{ name: "Atypique" }, { name: "Classique" }, { name: "Prestige" }],
 
   fitForOutdoor: ["Intérieur", "Extérieur"]
 };
 
 export const services = {
-  staff,
-  reception,
-  animations,
-  restaurants,
-  audiovisual
+  Staff,
+  Reception,
+  Animations,
+  Restaurants,
+  Audiovisual
 };

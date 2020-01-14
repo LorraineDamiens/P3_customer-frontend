@@ -15,9 +15,11 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { COMPANY_EVENT_CHOICE } from "../reducers/actionTypes";
 
-function CompanyInfo({ dispatch }) {
+function CompanyInfo({ dispatch, company }) {
   const [eventType, setEventType] = useState("");
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({
+    ...company
+  });
   const [name, setName] = useState("");
   const [companyFunction, setcompanyFunction] = useState("");
   const [events] = useState([
@@ -123,4 +125,10 @@ function CompanyInfo({ dispatch }) {
   );
 }
 
-export default connect()(CompanyInfo);
+const mapStateToProps = state => {
+  return {
+    customer: state.customer
+  };
+};
+
+export default connect(mapStateToProps)(CompanyInfo);
