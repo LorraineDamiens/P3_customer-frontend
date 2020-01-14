@@ -15,8 +15,10 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { ADD_CONTACT_INFOS } from "../reducers/actionTypes";
 
-function ContactInfo({ dispatch }) {
-  const [values, setValues] = useState({});
+function ContactInfo({ dispatch, contact }) {
+  const [values, setValues] = useState({
+    ...contact
+  });
   const history = useHistory();
 
   const sendDatas = (pathname, clientType) => {
@@ -113,4 +115,10 @@ function ContactInfo({ dispatch }) {
   );
 }
 
-export default connect()(ContactInfo);
+const mapStateToProps = state => {
+  return {
+    contact: state.contact
+  };
+};
+
+export default connect(mapStateToProps)(ContactInfo);

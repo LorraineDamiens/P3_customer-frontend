@@ -38,7 +38,7 @@ function Animations({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "animation",
+        type: "Animation",
         activities: e.target.name
       }
     });
@@ -61,7 +61,7 @@ function Animations({ dispatch }) {
             <FontAwesomeIcon classname="icon" icon={faGlassCheers} size="4x" />
             <h2>Animations</h2>
           </ModalHeader>
-          {services.animations.style.map((anim, i) => {
+          {services.Animations.style.map((anim, i) => {
             return (
               <>
                 <Row>

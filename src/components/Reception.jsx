@@ -42,7 +42,7 @@ function Reception({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "reception",
+        type: "Reception",
         activities: e.target.name
       }
     });
@@ -65,17 +65,17 @@ function Reception({ dispatch }) {
             <FontAwesomeIcon classname="icon" icon={faHome} size="4x" />
             <h2>Lieu de réception </h2>
           </ModalHeader>
-          {services.reception.style.map((reception, i) => {
+          {services.Reception.style.map((reception, i) => {
             return (
               <>
                 <Row>
                   <CustomInput
                     type="switch"
-                    name={reception.name}
+                    name={Reception.name}
                     id={i}
                     onChange={handleChange}
                   />{" "}
-                  {reception.name}
+                  {Reception.name}
                 </Row>
               </>
             );

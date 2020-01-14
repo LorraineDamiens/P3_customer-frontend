@@ -38,7 +38,7 @@ function Audiovisual({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "audiovisual",
+        type: "Audiovisual",
         activities: e.target.name
       }
     });
@@ -61,17 +61,17 @@ function Audiovisual({ dispatch }) {
             <h2>Audiovisuel et Communication </h2>
           </ModalHeader>
 
-          {services.audiovisual.activities.map((audiovisual, i) => {
+          {services.Audiovisual.activities.map((Audiovisual, i) => {
             return (
               <>
                 <Row>
                   <CustomInput
                     type="switch"
-                    name={audiovisual.name}
+                    name={Audiovisual.name}
                     id={i}
                     onChange={handleChange}
                   />{" "}
-                  {audiovisual.name}
+                  {Audiovisual.name}
                 </Row>
               </>
             );

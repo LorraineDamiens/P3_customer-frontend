@@ -38,7 +38,7 @@ function Staff({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "staff",
+        type: "Staff",
         activities: e.target.name
       }
     });
@@ -61,17 +61,17 @@ function Staff({ dispatch }) {
             <FontAwesomeIcon classname="icon" icon={faUsers} size="4x" />
             <h2>Staff </h2>
           </ModalHeader>
-          {services.staff.activities.map((staff, i) => {
+          {services.Staff.activities.map((Staff, i) => {
             return (
               <>
                 <Row>
                   <CustomInput
                     type="switch"
-                    name={staff.name}
+                    name={Staff.name}
                     id={i}
                     onChange={handleChange}
                   />{" "}
-                  {staff.name}
+                  {Staff.name}
                 </Row>
               </>
             );

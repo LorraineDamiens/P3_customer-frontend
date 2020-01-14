@@ -11,8 +11,10 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { ADD_MISC_INFOS } from "../reducers/actionTypes";
 
-function MiscInfo({ dispatch }) {
-  const [values, setValues] = useState({});
+function MiscInfo({ dispatch, misc }) {
+  const [values, setValues] = useState({
+    ...misc
+  });
   const [date, setDate] = useState("");
 
   const checkInt = (e, array) => {
@@ -135,4 +137,10 @@ function MiscInfo({ dispatch }) {
   );
 }
 
-export default connect()(MiscInfo);
+const mapStateToProps = state => {
+  return {
+    misc: state.misc
+  };
+};
+
+export default connect(mapStateToProps)(MiscInfo);

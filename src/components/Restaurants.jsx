@@ -42,7 +42,7 @@ function Restaurants({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "restaurant",
+        type: "Restaurant",
         activities: e.target.name
       }
     });
@@ -65,17 +65,17 @@ function Restaurants({ dispatch }) {
             <FontAwesomeIcon classname="icon" icon={faUtensils} size="4x" />
             <h2>Traiteur et boissons </h2>
           </ModalHeader>
-          {services.restaurants.style.map((restaurants, i) => {
+          {services.Restaurants.style.map((Restaurants, i) => {
             return (
               <>
                 <Row>
                   <CustomInput
                     type="switch"
-                    name={restaurants.name}
+                    name={Restaurants.name}
                     id={i}
                     onChange={handleChange}
                   />{" "}
-                  {restaurants.name}
+                  {Restaurants.name}
                 </Row>
               </>
             );
