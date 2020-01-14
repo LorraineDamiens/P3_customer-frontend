@@ -103,7 +103,7 @@ import SendDatas from "./components/SendDatas";
 const Animations = {
   style: [
     { name: "Digitale" },
-    { name: "Extrème" },
+    { name: "Extrême" },
     { name: "Ludique" },
     { name: "Motorisé" },
     { name: "Participative" },
@@ -143,6 +143,7 @@ const Restaurants = {
   style: [
     { name: "Brunch" },
     { name: "Déjeuner" },
+    { name: "Dîner" },
     { name: "Cocktail déjeunatoire" },
     { name: "Cocktail dinatoire" },
     { name: "Buffet" },
