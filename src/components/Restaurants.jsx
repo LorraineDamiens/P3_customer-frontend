@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { Card, CardTitle, Button, Col } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  Button,
+  Col,
+  ModalHeader,
+  CustomInput,
+  Row
+} from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 
 function Restaurants({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +42,7 @@ function Restaurants({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "restaurant",
+        type: "Restaurant",
         activities: e.target.name
       }
     });
@@ -48,18 +58,25 @@ function Restaurants({ dispatch }) {
   return (
     <Col xs="6">
       <Card body style={{ height: "150px" }}>
-        <CardTitle>Traiteur et boisson</CardTitle>
+        <CardTitle>Traiteur et boissons</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {services.restaurants.style.map(restaurants => {
+          <ModalHeader className="header">
+            <FontAwesomeIcon classname="icon" icon={faUtensils} size="4x" />
+            <h2>Traiteur et boissons </h2>
+          </ModalHeader>
+          {services.Restaurants.style.map((Restaurants, i) => {
             return (
               <>
-                <input
-                  type="checkbox"
-                  name={restaurants.name}
-                  onChange={handleChange}
-                />{" "}
-                {restaurants.name}
+                <Row>
+                  <CustomInput
+                    type="switch"
+                    name={Restaurants.name}
+                    id={i}
+                    onChange={handleChange}
+                  />{" "}
+                  {Restaurants.name}
+                </Row>
               </>
             );
           })}

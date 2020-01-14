@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { Card, CardTitle, Button, Col } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  Button,
+  Col,
+  ModalHeader,
+  CustomInput,
+  Row
+} from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 function Reception({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +42,7 @@ function Reception({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "reception",
+        type: "Reception",
         activities: e.target.name
       }
     });
@@ -48,18 +58,25 @@ function Reception({ dispatch }) {
   return (
     <Col xs="6">
       <Card body style={{ height: "150px" }}>
-        <CardTitle>Lieu</CardTitle>
+        <CardTitle>Lieu de réception</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {services.reception.style.map(reception => {
+          <ModalHeader className="header">
+            <FontAwesomeIcon classname="icon" icon={faHome} size="4x" />
+            <h2>Lieu de réception </h2>
+          </ModalHeader>
+          {services.Reception.style.map((Reception, i) => {
             return (
               <>
-                <input
-                  type="checkbox"
-                  name={reception.name}
-                  onChange={handleChange}
-                />{" "}
-                {reception.name}
+                <Row>
+                  <CustomInput
+                    type="switch"
+                    name={Reception.name}
+                    id={i}
+                    onChange={handleChange}
+                  />{" "}
+                  {Reception.name}
+                </Row>
               </>
             );
           })}

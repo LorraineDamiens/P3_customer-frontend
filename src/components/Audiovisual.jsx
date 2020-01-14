@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { Card, CardTitle, Button, Col } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  Button,
+  Col,
+  ModalHeader,
+  CustomInput,
+  Row
+} from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMusic } from "@fortawesome/free-solid-svg-icons";
 
 function Audiovisual({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +38,7 @@ function Audiovisual({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "audiovisual",
+        type: "Audiovisual",
         activities: e.target.name
       }
     });
@@ -46,15 +56,23 @@ function Audiovisual({ dispatch }) {
         <CardTitle>Audiovisuel et Com</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {services.audiovisual.activities.map(audiovisual => {
+          <ModalHeader className="header">
+            <FontAwesomeIcon classname="icon" icon={faMusic} size="4x" />
+            <h2>Audiovisuel et Communication </h2>
+          </ModalHeader>
+
+          {services.Audiovisual.activities.map((Audiovisual, i) => {
             return (
               <>
-                <input
-                  type="checkbox"
-                  name={audiovisual.name}
-                  onChange={handleChange}
-                />{" "}
-                {audiovisual.name}
+                <Row>
+                  <CustomInput
+                    type="switch"
+                    name={Audiovisual.name}
+                    id={i}
+                    onChange={handleChange}
+                  />{" "}
+                  {Audiovisual.name}
+                </Row>
               </>
             );
           })}

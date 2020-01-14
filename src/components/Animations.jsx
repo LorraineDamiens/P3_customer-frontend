@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { Card, CardTitle, Button, Col } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  Button,
+  Col,
+  ModalHeader,
+  CustomInput,
+  Row
+} from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlassCheers } from "@fortawesome/free-solid-svg-icons";
 
 function Animations({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +38,7 @@ function Animations({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "animation",
+        type: "Animation",
         activities: e.target.name
       }
     });
@@ -47,15 +57,22 @@ function Animations({ dispatch }) {
         <CardTitle>Animations</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {services.animations.style.map(anim => {
+          <ModalHeader className="header">
+            <FontAwesomeIcon classname="icon" icon={faGlassCheers} size="4x" />
+            <h2>Animations</h2>
+          </ModalHeader>
+          {services.Animations.style.map((anim, i) => {
             return (
               <>
-                <input
-                  type="checkbox"
-                  name={anim.name}
-                  onChange={handleChange}
-                />{" "}
-                {anim.name}
+                <Row>
+                  <CustomInput
+                    type="switch"
+                    name={anim.name}
+                    id={i}
+                    onChange={handleChange}
+                  />{" "}
+                  {anim.name}
+                </Row>
               </>
             );
           })}

@@ -100,10 +100,10 @@ import SendDatas from "./components/SendDatas";
   }
 ]; */
 
-const animations = {
+const Animations = {
   style: [
     { name: "Digitale" },
-    { name: "Extrème" },
+    { name: "Extrême" },
     { name: "Ludique" },
     { name: "Motorisé" },
     { name: "Participative" },
@@ -139,10 +139,11 @@ const animations = {
   fitForOutdoor: ["Intérieur", "Extérieur"]
 };
 
-const restaurants = {
+const Restaurants = {
   style: [
     { name: "Brunch" },
     { name: "Déjeuner" },
+    { name: "Dîner" },
     { name: "Cocktail déjeunatoire" },
     { name: "Cocktail dinatoire" },
     { name: "Buffet" },
@@ -155,7 +156,7 @@ const restaurants = {
   serviceAtTable: ["Debout", "Service à table"]
 };
 
-const audiovisual = {
+const Audiovisual = {
   activities: [
     { name: "DJ" },
     { name: "Orchestre musical" },
@@ -169,10 +170,11 @@ const audiovisual = {
   ]
 };
 
-const staff = {
+const Staff = {
   activities: [
     { name: "Influenceurs/Célébrités" },
     { name: "Speaker/Conférenciers" },
+    { name: "Maître d'hôtel" },
     { name: "Animateur" },
     { name: "Serveurs" },
     { name: "Hôtesses" },
@@ -180,20 +182,21 @@ const staff = {
     { name: "Chef cuisinier" },
     { name: "Voiturier" },
     { name: "Transport évènementiel" },
-    { name: "VTC" }
+    { name: "VTC" },
+    { name: "Animateur" }
   ]
 };
 
-const reception = {
+const Reception = {
   style: [{ name: "Atypique" }, { name: "Classique" }, { name: "Prestige" }],
 
   fitForOutdoor: ["Intérieur", "Extérieur"]
 };
 
 export const services = {
-  staff,
-  reception,
-  animations,
-  restaurants,
-  audiovisual
+  Staff,
+  Reception,
+  Animations,
+  Restaurants,
+  Audiovisual
 };

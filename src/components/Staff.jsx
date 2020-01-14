@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { Card, CardTitle, Button, Col } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  Button,
+  Col,
+  ModalHeader,
+  CustomInput,
+  Row
+} from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
 function Staff({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +38,7 @@ function Staff({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "staff",
+        type: "Staff",
         activities: e.target.name
       }
     });
@@ -47,15 +57,22 @@ function Staff({ dispatch }) {
         <CardTitle>Staff</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
-          {services.staff.activities.map(staff => {
+          <ModalHeader className="header">
+            <FontAwesomeIcon classname="icon" icon={faUsers} size="4x" />
+            <h2>Staff </h2>
+          </ModalHeader>
+          {services.Staff.activities.map((Staff, i) => {
             return (
               <>
-                <input
-                  type="checkbox"
-                  name={staff.name}
-                  onChange={handleChange}
-                />{" "}
-                {staff.name}
+                <Row>
+                  <CustomInput
+                    type="switch"
+                    name={Staff.name}
+                    id={i}
+                    onChange={handleChange}
+                  />{" "}
+                  {Staff.name}
+                </Row>
               </>
             );
           })}

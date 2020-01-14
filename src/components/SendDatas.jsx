@@ -29,17 +29,6 @@ function SendDatas() {
         alert(err.message);
       });
   };
-  // const sendDatas2 = async () => {
-  //   try {
-  //     const res = await axios.post("http://localhost:8089/api/orders", values, {
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       }
-  //     })
-  //   } catch (err) {
-
-  //   }
-  // }
 
   return <Button onClick={sendDatas}>Envoyer la demande</Button>;
 }
