@@ -174,6 +174,7 @@ const Staff = {
   activities: [
     { name: "Influenceurs/Célébrités" },
     { name: "Speaker/Conférenciers" },
+    { name: "Maître d'hôtel" },
     { name: "Animateur" },
     { name: "Serveurs" },
     { name: "Hôtesses" },
@@ -181,7 +182,8 @@ const Staff = {
     { name: "Chef cuisinier" },
     { name: "Voiturier" },
     { name: "Transport évènementiel" },
-    { name: "VTC" }
+    { name: "VTC" },
+    { name: "Animateur" }
   ]
 };
 
