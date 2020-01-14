@@ -1,35 +1,43 @@
 import React, { useState } from "react";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  NavbarText
+  NavbarToggler,
+  Collapse
 } from "reactstrap";
 
 function NavbarTop() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
   return (
     <>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">POZA</NavbarBrand>
+      <Navbar light expand="md">
+        <NavbarBrand href="/">
+          <img src="images/minilogopoza.png" alt="logo poza" />
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink href="https://poza-evenement.fr/">L'agence POZA</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://poza-evenement.fr/contact/">
+                Contact
+              </NavLink>
+            </NavItem>
 
-        <Nav className="mr-auto" navbar>
-          <NavItem>
-            <NavLink href="https://poza-evenement.fr/">L'agence POZA</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="https://poza-evenement.fr/contact/">Contact</NavLink>
-          </NavItem>
-
-          <NavItem>
-            <NavLink href="http://localhost:8001/new">
-              Devenez prestataire
-            </NavLink>
-          </NavItem>
-        </Nav>
+            <NavItem>
+              <NavLink href="http://localhost:8001/new">
+                Devenez prestataire
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
       </Navbar>
     </>
   );
