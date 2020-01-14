@@ -65,7 +65,7 @@ function Reception({ dispatch }) {
             <FontAwesomeIcon classname="icon" icon={faHome} size="4x" />
             <h2>Lieu de réception </h2>
           </ModalHeader>
-          {services.Reception.style.map((reception, i) => {
+          {services.Reception.style.map((Reception, i) => {
             return (
               <>
                 <Row>
