@@ -103,7 +103,7 @@ import SendDatas from "./components/SendDatas";
 const Animations = {
   style: [
     { name: "Digitale" },
-    { name: "Extrême" },
+    { name: "Extreme" },
     { name: "Ludique" },
     { name: "Motorisé" },
     { name: "Participative" },
