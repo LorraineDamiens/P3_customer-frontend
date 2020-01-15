@@ -116,7 +116,7 @@ function MiscInfo({ dispatch, misc }) {
             onChange={handleChange}
           />
         </InputGroup>
-        <InputGroup>
+        {/* <InputGroup>
           <InputGroupAddon addonType="prepend">
             <InputGroupText>Autres</InputGroupText>
           </InputGroupAddon>
@@ -127,7 +127,7 @@ function MiscInfo({ dispatch, misc }) {
             value={values.comment}
             onChange={handleChange}
           />
-        </InputGroup>
+        </InputGroup> */}
         <Button onClick={goBack}>Précédent</Button>
         <Button onClick={() => sendDatas("/services")}>
           Choisir des prestations

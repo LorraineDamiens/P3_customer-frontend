@@ -35,7 +35,15 @@ a .navlink :visited {
   margin-top: 10vw;
   margin-bottom: 10vw;
 }
-
+.recapform {
+  width: 50%;
+  margin-left: 25vw;
+  margin-top: 10vw;
+}
+.commentarea {
+  width: 50%;
+  margin-left: 25vw;
+}
 .btn {
   margin: 3%;
   background-color: #c7d46f;
