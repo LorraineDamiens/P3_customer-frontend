@@ -52,7 +52,7 @@ function Confirmation() {
           <thead>
             <tr>
               <th>
-                <h2>Récapitulatif de votre demande</h2>
+                <h3>Récapitulatif de votre demande</h3>
               </th>
             </tr>
           </thead>

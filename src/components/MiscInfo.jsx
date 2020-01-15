@@ -145,18 +145,7 @@ function MiscInfo({ dispatch, misc }) {
             onChange={handleDate}
           />
         </InputGroup>
-        {/* <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Région</InputGroupText>
-          </InputGroupAddon> */}
-        {/* <Input
-            type="text"
-            name="region"
-            placeholder="Région"
-            value={values.region}
-            onChange={handleChange}
-          />
-        </InputGroup> */}
+
         <InputGroup>
           <InputGroupAddon addonType="prepend">
             <InputGroupText>Region</InputGroupText>
@@ -184,6 +173,7 @@ function MiscInfo({ dispatch, misc }) {
             onChange={handleChange}
           />
         </InputGroup>
+
         <Button onClick={goBack}>Précédent</Button>
         <Button disabled={disabled} onClick={() => sendDatas("/services")}>
           Choisir des prestations
