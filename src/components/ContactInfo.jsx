@@ -53,6 +53,7 @@ function ContactInfo({ dispatch, contact }) {
                           placeholder="Prénom"
                           value={values.clientFirstname}
                           onChange={handleChange}
+                          required
                         />
                       </Col>
                     </FormGroup>
@@ -69,6 +70,7 @@ function ContactInfo({ dispatch, contact }) {
                           placeholder="Nom"
                           value={values.clientName}
                           onChange={handleChange}
+                          required
                         />
                       </Col>
                     </FormGroup>
@@ -85,6 +87,7 @@ function ContactInfo({ dispatch, contact }) {
                       placeholder="Email"
                       value={values.clientEmail}
                       onChange={handleChange}
+                      required
                     />
                   </FormGroup>
                 </FormGroup>
@@ -97,6 +100,7 @@ function ContactInfo({ dispatch, contact }) {
                     placeholder="Téléphone"
                     value={values.clientTel}
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
               </Form>
