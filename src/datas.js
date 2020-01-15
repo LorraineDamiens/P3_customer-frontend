@@ -182,8 +182,7 @@ const Staff = {
     { name: "Chef cuisinier" },
     { name: "Voiturier" },
     { name: "Transport évènementiel" },
-    { name: "VTC" },
-    { name: "Animateur" }
+    { name: "VTC" }
   ]
 };
 
