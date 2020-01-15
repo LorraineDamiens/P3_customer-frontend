@@ -6,8 +6,11 @@ a {
   color: white !important;
 }
 
-a .navlink :visited {
+a .navbar:visited {
   color: #bdd180 !important;
+}
+table {
+  text-align: start;
 }
 
 .navbar {
@@ -81,6 +84,10 @@ h3 {
 }
 h1 {
   color: #495666;
+}
+
+h2 {
+  text-align: center;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
