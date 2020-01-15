@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
 import { Button, Spinner, Table, Card } from "reactstrap";
-
+import Comments from "./Comments";
 import AlertWindow from "./Alert";
 
 function Confirmation() {
@@ -14,6 +13,7 @@ function Confirmation() {
   const services = useSelector(state => state.services);
 
   const [recap, setRecap] = useState({
+    comment: "",
     ...contact,
     ...misc,
     ...company,
@@ -46,12 +46,11 @@ function Confirmation() {
   };
   return (
     <>
-      <Card className="custform">
+      <Card className="recapform">
         <Table>
           <thead>
             <tr>
               <th>
-                {" "}
                 <h3>Récapitulatif de votre demande</h3>
               </th>
             </tr>
@@ -116,7 +115,9 @@ function Confirmation() {
           </tbody>
         </Table>
       </Card>
-
+      <Card className="commentarea">
+        <Comments state={recap} setState={setRecap} />
+      </Card>
       {alert ? (
         <AlertWindow />
       ) : (
