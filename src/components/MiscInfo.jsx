@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   InputGroup,
   InputGroupAddon,
@@ -13,9 +13,32 @@ import { ADD_MISC_INFOS } from "../reducers/actionTypes";
 
 function MiscInfo({ dispatch, misc }) {
   const [values, setValues] = useState({
-    ...misc
+    nbGuests: "",
+    budget: "",
+    date: "",
+    region: "",
+    city: ""
   });
   const [date, setDate] = useState("");
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    values.nbGuests &&
+    values.budget &&
+    values.date &&
+    values.region &&
+    values.city.toString().length >= 1
+      ? setDisabled(false)
+      : setDisabled(true);
+  }, [values]);
+
+  useEffect(() => {
+    misc &&
+      setValues({
+        ...values,
+        ...misc
+      });
+  }, [misc]);
 
   const checkInt = (e, array) => {
     if (array.some(el => e.target.name === el)) {
@@ -116,20 +139,8 @@ function MiscInfo({ dispatch, misc }) {
             onChange={handleChange}
           />
         </InputGroup>
-        {/* <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Autres</InputGroupText>
-          </InputGroupAddon>
-          <Input
-            type="textarea"
-            name="comment"
-            placeholder="Commentaires"
-            value={values.comment}
-            onChange={handleChange}
-          />
-        </InputGroup> */}
         <Button onClick={goBack}>Précédent</Button>
-        <Button onClick={() => sendDatas("/services")}>
+        <Button disabled={disabled} onClick={() => sendDatas("/services")}>
           Choisir des prestations
         </Button>
       </Container>
