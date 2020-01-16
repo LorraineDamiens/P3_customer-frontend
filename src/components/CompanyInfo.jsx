@@ -129,7 +129,7 @@ function CompanyInfo({ dispatch, company }) {
 
 const mapStateToProps = state => {
   return {
-    customer: state.customer
+    company: state.company
   };
 };
 
