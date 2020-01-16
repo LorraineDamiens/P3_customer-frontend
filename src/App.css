@@ -6,8 +6,11 @@ a {
   color: white !important;
 }
 
-a .navlink :visited {
+a .navbar:visited {
   color: #bdd180 !important;
+}
+table {
+  text-align: start;
 }
 
 .navbar {
@@ -35,7 +38,15 @@ a .navlink :visited {
   margin-top: 10vw;
   margin-bottom: 10vw;
 }
-
+.recapform {
+  width: 50%;
+  margin-left: 25vw;
+  margin-top: 10vw;
+}
+.commentarea {
+  width: 50%;
+  margin-left: 25vw;
+}
 .btn {
   margin: 3%;
   background-color: #c7d46f;
@@ -73,6 +84,10 @@ h3 {
 }
 h1 {
   color: #495666;
+}
+
+h2 {
+  text-align: center;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
