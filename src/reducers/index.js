@@ -5,7 +5,6 @@ import miscReducer from "./miscReducer";
 import contactReducer from "./contactReducer";
 import servicesReducer from "./servicesReducer";
 import customerReducer from "./customerReducer";
-import commentReducer from "./commentReducer";
 
 export default combineReducers({
   contact: contactReducer,
