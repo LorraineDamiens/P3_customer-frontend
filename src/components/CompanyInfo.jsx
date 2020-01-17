@@ -20,6 +20,7 @@ function CompanyInfo({ dispatch, company }) {
   const [values, setValues] = useState({
     ...company
   });
+
   const [name, setName] = useState("");
   const [companyFunction, setcompanyFunction] = useState("");
   const [events] = useState([
@@ -129,7 +130,7 @@ function CompanyInfo({ dispatch, company }) {
 
 const mapStateToProps = state => {
   return {
-    customer: state.customer
+    company: state.company
   };
 };
 

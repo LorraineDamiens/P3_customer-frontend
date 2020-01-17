@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Col,
   Row,
@@ -17,9 +17,30 @@ import { ADD_CONTACT_INFOS } from "../reducers/actionTypes";
 
 function ContactInfo({ dispatch, contact }) {
   const [values, setValues] = useState({
-    ...contact
+    clientFirstname: "",
+    clientName: "",
+    clientEmail: "",
+    clientTel: ""
   });
+  const [disabled, setDisabled] = useState(true);
   const history = useHistory();
+
+  useEffect(() => {
+    values.clientName &&
+    values.clientFirstname &&
+    values.clientEmail &&
+    values.clientTel.toString().length >= 10
+      ? setDisabled(false)
+      : setDisabled(true);
+  }, [values]);
+
+  useEffect(() => {
+    contact &&
+      setValues({
+        ...values,
+        ...contact
+      });
+  }, [contact]);
 
   const sendDatas = (pathname, clientType) => {
     dispatch({ type: ADD_CONTACT_INFOS, payload: { ...values, clientType } });
@@ -106,10 +127,16 @@ function ContactInfo({ dispatch, contact }) {
               </Form>
             </Col>
 
-            <Button onClick={() => sendDatas("/customer", "Particulier")}>
+            <Button
+              disabled={disabled}
+              onClick={() => sendDatas("/customer", "Particulier")}
+            >
               Je suis un particulier
             </Button>
-            <Button onClick={() => sendDatas("/company", "Entreprise")}>
+            <Button
+              disabled={disabled}
+              onClick={() => sendDatas("/company", "Entreprise")}
+            >
               Je suis une société
             </Button>
           </CardBody>
