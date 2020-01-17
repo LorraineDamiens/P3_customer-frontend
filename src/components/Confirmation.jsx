@@ -6,7 +6,9 @@ import Comments from "./Comments";
 import AlertWindow from "./Alert";
 
 function Confirmation() {
-  const company = useSelector(state => state.company);
+  const { companyName, companyFunction, eventType } = useSelector(
+    state => state.company
+  );
   const contact = useSelector(state => state.contact);
   const customer = useSelector(state => state.customer);
   const misc = useSelector(state => state.misc);
@@ -16,17 +18,15 @@ function Confirmation() {
     comment: "",
     ...contact,
     ...misc,
-    ...company,
     ...customer,
-    services
+    services,
+    companyName,
+    companyFunction,
+    eventType
   });
 
   const [alert, setAlert] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    console.log(company);
-  }, []);
 
   const post = () => {
     setIsLoading(true);
@@ -74,7 +74,7 @@ function Confirmation() {
             </tr>
             <tr>
               <td> Société:</td>
-              <td>{company.companyName}</td>
+              <td>{recap.companyName}</td>
             </tr>
             <tr>
               <td>Nombre d'invités:</td>
