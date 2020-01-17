@@ -12,13 +12,31 @@ import { connect } from "react-redux";
 import { ADD_MISC_INFOS } from "../reducers/actionTypes";
 
 function MiscInfo({ dispatch, misc }) {
+  const [regions] = useState([
+    "Auvergne / Rhone Alpe",
+    "Bourgogne / Franche Comté",
+    "Bretagne",
+    "Centre / Val de Loire",
+    "Corse",
+    "Grand Est",
+    "Haut de France",
+    "Ile de France",
+    "Normandie",
+    "Nouvelle Aquitaine",
+    "Occitanie",
+    "Pays de la Loire",
+    "Provence - Alpes - Cote d'Azur",
+    "DOM - TOM"
+  ]);
+
+  const [region, setRegion] = useState("");
   const [values, setValues] = useState({
     nbGuests: "",
     budget: "",
     date: "",
-    region: "",
     city: ""
   });
+
   const [date, setDate] = useState("");
   const [disabled, setDisabled] = useState(true);
 
@@ -26,16 +44,17 @@ function MiscInfo({ dispatch, misc }) {
     values.nbGuests &&
     values.budget &&
     values.date &&
-    values.region &&
+    region &&
     values.city.toString().length >= 1
       ? setDisabled(false)
       : setDisabled(true);
-  }, [values]);
+  }, [values, region]);
 
   useEffect(() => {
     misc &&
       setValues({
         ...values,
+        region,
         ...misc
       });
   }, [misc]);
@@ -46,6 +65,10 @@ function MiscInfo({ dispatch, misc }) {
       return value;
     }
     return e.target.value;
+  };
+
+  const handleSelect = e => {
+    setRegion(e.target.value);
   };
 
   const handleDate = e => {
@@ -66,7 +89,13 @@ function MiscInfo({ dispatch, misc }) {
   };
   const sendDatas = pathname => {
     if (values) {
-      dispatch({ type: ADD_MISC_INFOS, payload: values });
+      dispatch({
+        type: ADD_MISC_INFOS,
+        payload: {
+          ...values,
+          region
+        }
+      });
       history.push(pathname);
     }
   };
@@ -115,17 +144,32 @@ function MiscInfo({ dispatch, misc }) {
             onChange={handleDate}
           />
         </InputGroup>
-        <InputGroup>
+        {/* <InputGroup>
           <InputGroupAddon addonType="prepend">
             <InputGroupText>Région</InputGroupText>
-          </InputGroupAddon>
-          <Input
+          </InputGroupAddon> */}
+        {/* <Input
             type="text"
             name="region"
             placeholder="Région"
             value={values.region}
             onChange={handleChange}
           />
+        </InputGroup> */}
+        <InputGroup>
+          <InputGroupAddon addonType="prepend">
+            <InputGroupText>Region</InputGroupText>
+          </InputGroupAddon>
+          <Input
+            type="select"
+            name="select"
+            id="region"
+            onChange={handleSelect}
+          >
+            {regions.map(region => {
+              return <option value={region}>{region}</option>;
+            })}
+          </Input>
         </InputGroup>
         <InputGroup>
           <InputGroupAddon addonType="prepend">
