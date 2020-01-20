@@ -13,10 +13,10 @@ import { ADD_MISC_INFOS } from "../reducers/actionTypes";
 
 function MiscInfo({ dispatch, misc }) {
   const [regions] = useState([
-    "Auvergne / Rhone Alpe",
-    "Bourgogne / Franche Comté",
+    "Auvergne - Rhone Alpes",
+    "Bourgogne - Franche Comté",
     "Bretagne",
-    "Centre / Val de Loire",
+    "Centre - Val de Loire",
     "Corse",
     "Grand Est",
     "Haut de France",
@@ -107,6 +107,7 @@ function MiscInfo({ dispatch, misc }) {
   return (
     <>
       <Container className="miscont">
+        <h2> Informations complémentaires</h2>
         <InputGroup>
           <InputGroupAddon addonType="prepend">
             <InputGroupText>Nombre d'invités</InputGroupText>
