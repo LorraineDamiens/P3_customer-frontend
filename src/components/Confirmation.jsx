@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Button, Spinner, Table, Card } from "reactstrap";
+
 import Comments from "./Comments";
 import AlertWindow from "./Alert";
 
 function Confirmation() {
-  const company = useSelector(state => state.company);
+  const { companyName, companyFunction, eventType } = useSelector(
+    state => state.company
+  );
   const contact = useSelector(state => state.contact);
   const customer = useSelector(state => state.customer);
   const misc = useSelector(state => state.misc);
@@ -16,22 +19,20 @@ function Confirmation() {
     comment: "",
     ...contact,
     ...misc,
-    ...company,
     ...customer,
-    services
+    services,
+    companyName,
+    companyFunction,
+    eventType
   });
 
   const [alert, setAlert] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    console.log(company);
-  }, []);
-
   const post = () => {
     setIsLoading(true);
     axios
-      .post("http://localhost:8089/api/orders", recap, {
+      .post(`${process.env.REACT_APP_API_ENDPOINT}/orders`, recap, {
         headers: {
           "Content-Type": "application/ld+json",
           Accept: "application/json"
@@ -74,7 +75,7 @@ function Confirmation() {
             </tr>
             <tr>
               <td> Société:</td>
-              <td>{company.companyName}</td>
+              <td>{recap.companyName}</td>
             </tr>
             <tr>
               <td>Nombre d'invités:</td>

@@ -5,9 +5,9 @@ const AlertWindow = props => {
   return (
     <div>
       <Alert className="alert">
-        <h4 className="alert-heading">ENVOYE !!</h4>
+        <h4 className="alert-heading">ENVOYEE !!</h4>
         <p>
-          Votre commande a bien été envoyée. Notre équipe reprendra contact avec
+          Votre demande a bien été envoyée. Notre équipe reprendra contact avec
           vous dans les plus brefs délais.
         </p>
         <hr />
