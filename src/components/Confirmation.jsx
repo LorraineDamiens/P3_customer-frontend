@@ -7,7 +7,7 @@ import Comments from "./Comments";
 import AlertWindow from "./Alert";
 
 function Confirmation() {
-  const { companyName, companyFunction, eventType } = useSelector(
+  const { companyName = "", companyFunction = "", eventType } = useSelector(
     state => state.company
   );
   const contact = useSelector(state => state.contact);
@@ -23,7 +23,7 @@ function Confirmation() {
     services,
     companyName,
     companyFunction,
-    eventType
+    eventType: !customer.eventType ? eventType : customer.eventType
   });
 
   const [alert, setAlert] = useState(false);
