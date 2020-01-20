@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Button, Spinner, Table, Card } from "reactstrap";
+
 import Comments from "./Comments";
 import AlertWindow from "./Alert";
 
@@ -31,7 +32,7 @@ function Confirmation() {
   const post = () => {
     setIsLoading(true);
     axios
-      .post("http://localhost:8089/api/orders", recap, {
+      .post(`${process.env.REACT_APP_API_ENDPOINT}/orders`, recap, {
         headers: {
           "Content-Type": "application/ld+json",
           Accept: "application/json"
