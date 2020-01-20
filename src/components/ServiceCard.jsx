@@ -15,7 +15,7 @@ const ServiceCard = ({ color, name, buttonColor, types }) => {
       <Row>
         <Col xs="5">
           <Card
-            className="servicescard text-justify"
+            className="servicescard"
             body
             inverse
             color={color}
