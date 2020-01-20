@@ -57,7 +57,7 @@ function ContactInfo({ dispatch, contact }) {
   return (
     <>
       <Row>
-        <Card className="custform">
+        <Card className="custform" xs="12">
           <CardHeader>Formulaire de contact:</CardHeader>
           <CardBody>
             <Col>
