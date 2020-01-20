@@ -27,11 +27,14 @@ table {
 
 .servicescard {
   padding: 5%;
-  border-radius: 20px 0;
+  border-radius: 40px 0;
 }
 .card {
   margin: 30px;
   border-color: #313b48;
+  font-weight: bold;
+  font-size: large;
+  border-style: groove;
 }
 .custform {
   width: 50%;
@@ -51,18 +54,28 @@ table {
 .btn {
   margin: 3%;
   background-color: #c7d46f;
+  font-weight: bold;
+  border-radius: 45px;
 }
 .btn-secondary:hover {
   background-color: #313b48;
+}
+
+.btn:active {
+  background-color: #9dab3d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 .modal .modal-content {
   color: white;
   background: #495666;
   padding: 8%;
+  border-radius: 45px;
 }
 .row {
   padding: 4%;
 }
+
 .App {
   text-align: center;
 }
@@ -80,6 +93,7 @@ table {
 .spinner {
   background-color: #c7d46f;
 }
+
 h3 {
   color: #495666;
 }
@@ -89,6 +103,7 @@ h1 {
 
 h2 {
   text-align: center;
+  margin-bottom: 5%;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
