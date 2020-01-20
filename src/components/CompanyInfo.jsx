@@ -108,6 +108,7 @@ function CompanyInfo({ dispatch, company }) {
                   </FormGroup>
                 );
               })}
+              <br />
               <InputGroup>
                 <Input
                   type="text"
