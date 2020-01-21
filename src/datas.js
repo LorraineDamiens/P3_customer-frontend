@@ -143,7 +143,7 @@ const Restaurants = {
   style: [
     { name: "Brunch" },
     { name: "Déjeuner" },
-    { name: "Dîner" },
+    { name: "Diner" },
     { name: "Cocktail déjeunatoire" },
     { name: "Cocktail dinatoire" },
     { name: "Buffet" },
@@ -162,22 +162,22 @@ const Audiovisual = {
     { name: "Orchestre musical" },
     { name: "Live musical" },
     { name: "Son" },
-    { name: "Lumière/Projection" },
+    { name: "Lumière - Projection" },
     { name: "Régie" },
     { name: "Photographe" },
-    { name: "Drône/Vidéo" },
-    { name: "Création & impressions publicitaires" }
+    { name: "Drone - Vidéo" },
+    { name: "Création et impressions publicitaires" }
   ]
 };
 
 const Staff = {
   activities: [
-    { name: "Influenceurs/Célébrités" },
-    { name: "Speaker/Conférenciers" },
+    { name: "Influenceurs - Célébrités" },
+    { name: "Speaker - Conférenciers" },
     { name: "Maître d'hôtel" },
     { name: "Animateur" },
     { name: "Serveurs" },
-    { name: "Hôtesses" },
+    { name: "Hotesses" },
     { name: "Agent de sécurité" },
     { name: "Chef cuisinier" },
     { name: "Voiturier" },

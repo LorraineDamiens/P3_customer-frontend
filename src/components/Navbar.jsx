@@ -32,7 +32,7 @@ function NavbarTop() {
             </NavItem>
 
             <NavItem>
-              <NavLink href="http://localhost:8000/new">
+              <NavLink href="https://pozabackoffice.ddns.net/new">
                 Devenez prestataire
               </NavLink>
             </NavItem>
