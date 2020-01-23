@@ -93,6 +93,14 @@ table {
 .spinner {
   background-color: #c7d46f;
 }
+.footer {
+  flex-shrink: 0;
+  text-align: center;
+  background-color: #313b48;
+  color: white;
+  height: 100px;
+  padding: 2%;
+}
 
 h3 {
   color: #495666;
