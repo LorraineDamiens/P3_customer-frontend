@@ -106,8 +106,8 @@ function MiscInfo({ dispatch, misc }) {
 
   return (
     <>
+      <h2> Informations complémentaires</h2>
       <Container className="miscont">
-        <h2> Informations complémentaires</h2>
         <InputGroup>
           <InputGroupAddon addonType="prepend">
             <InputGroupText>Nombre d'invités</InputGroupText>

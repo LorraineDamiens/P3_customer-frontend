@@ -97,10 +97,7 @@ function Confirmation() {
               <td>Ville:</td>
               <td>{recap.city}</td>
             </tr>
-            <tr>
-              <td>Commentaires:</td>
-              <td>{recap.comment}</td>
-            </tr>
+
             <tr>
               <td>Type d'évènement:</td>
               <td>{recap.eventType}</td>
@@ -113,6 +110,11 @@ function Confirmation() {
                 </tr>
               );
             })}
+
+            <tr>
+              <td>Commentaires:</td>
+              <td>{recap.comment}</td>
+            </tr>
           </tbody>
         </Table>
       </Card>

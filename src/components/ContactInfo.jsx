@@ -56,92 +56,95 @@ function ContactInfo({ dispatch, contact }) {
 
   return (
     <>
-      <Row>
-        <Card className="custform" xs="12">
-          <CardHeader>Formulaire de contact:</CardHeader>
-          <CardBody>
-            <Col>
-              <Form>
-                <Row form>
-                  <Col>
-                    <FormGroup row>
-                      <Label for="clientFirstname"></Label>
-                      <Col>
-                        <Input
-                          type="text"
-                          name="clientFirstname"
-                          id="clientFirstname"
-                          placeholder="Prénom"
-                          value={values.clientFirstname}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Col>
-                    </FormGroup>
-                  </Col>
+      <h2>Préparez votre évènement!</h2>
+      <Col xs="12" sm="12">
+        <Row>
+          <Card className="cust">
+            <CardHeader>Formulaire de contact:</CardHeader>
+            <CardBody>
+              <Col>
+                <Form>
+                  <Row form>
+                    <Col>
+                      <FormGroup row>
+                        <Label for="clientFirstname"></Label>
+                        <Col>
+                          <Input
+                            type="text"
+                            name="clientFirstname"
+                            id="clientFirstname"
+                            placeholder="Prénom"
+                            value={values.clientFirstname}
+                            onChange={handleChange}
+                            required
+                          />
+                        </Col>
+                      </FormGroup>
+                    </Col>
 
-                  <Col>
-                    <FormGroup row>
-                      <Label for="clientName"></Label>
-                      <Col>
-                        <Input
-                          type="text"
-                          name="clientName"
-                          id="clientName"
-                          placeholder="Nom"
-                          value={values.clientName}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Col>
-                    </FormGroup>
-                  </Col>
-                </Row>
+                    <Col>
+                      <FormGroup row>
+                        <Label for="clientName"></Label>
+                        <Col>
+                          <Input
+                            type="text"
+                            name="clientName"
+                            id="clientName"
+                            placeholder="Nom"
+                            value={values.clientName}
+                            onChange={handleChange}
+                            required
+                          />
+                        </Col>
+                      </FormGroup>
+                    </Col>
+                  </Row>
 
-                <FormGroup>
                   <FormGroup>
-                    <Label for="clientEmail"></Label>
+                    <FormGroup>
+                      <Label for="clientEmail"></Label>
+                      <Input
+                        type="email"
+                        name="clientEmail"
+                        id="clientEmail"
+                        placeholder="Email"
+                        value={values.clientEmail}
+                        onChange={handleChange}
+                        required
+                      />
+                    </FormGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="clientTel"></Label>
                     <Input
-                      type="email"
-                      name="clientEmail"
-                      id="clientEmail"
-                      placeholder="Email"
-                      value={values.clientEmail}
+                      type="text"
+                      name="clientTel"
+                      id="clientTel"
+                      placeholder="Téléphone"
+                      value={values.clientTel}
                       onChange={handleChange}
                       required
                     />
                   </FormGroup>
-                </FormGroup>
-                <FormGroup>
-                  <Label for="clientTel"></Label>
-                  <Input
-                    type="text"
-                    name="clientTel"
-                    id="clientTel"
-                    placeholder="Téléphone"
-                    value={values.clientTel}
-                    onChange={handleChange}
-                    required
-                  />
-                </FormGroup>
-              </Form>
-            </Col>
+                </Form>
+              </Col>
 
-            <Button
-              disabled={disabled}
-              onClick={() => sendDatas("/customer", "Particulier")}
-            >
-              Je suis un particulier
-            </Button>
-            <Button
-              disabled={disabled}
-              onClick={() => sendDatas("/company", "Entreprise")}
-            >
-              Je suis une société
-            </Button>
-          </CardBody>
-        </Card>
-      </Row>
+              <Button
+                disabled={disabled}
+                onClick={() => sendDatas("/customer", "Particulier")}
+              >
+                Je suis un particulier
+              </Button>
+              <Button
+                disabled={disabled}
+                onClick={() => sendDatas("/company", "Entreprise")}
+              >
+                Je suis une société
+              </Button>
+            </CardBody>
+          </Card>
+        </Row>
+      </Col>
     </>
   );
 }

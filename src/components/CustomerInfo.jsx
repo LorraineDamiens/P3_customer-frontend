@@ -48,11 +48,11 @@ function CustomerInfo({ dispatch, customer }) {
   };
   return (
     <>
-      <Row>
-        <Card className="custform">
-          <CardHeader>Si vous êtes un particulier:</CardHeader>
-          <CardBody>
-            <Col>
+      <Col xs="12" sm="12">
+        <Row>
+          <Card className="custform">
+            <CardHeader>Si vous êtes un particulier:</CardHeader>
+            <CardBody>
               {events.map(({ name, label }, i) => {
                 return (
                   <FormGroup check key={i}>
@@ -77,13 +77,13 @@ function CustomerInfo({ dispatch, customer }) {
                   onChange={handleInput}
                 />
               </InputGroup>
-            </Col>
 
-            <Button onClick={goBack}>Précédent</Button>
-            <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
-          </CardBody>
-        </Card>
-      </Row>
+              <Button onClick={goBack}>Précédent</Button>
+              <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
+            </CardBody>
+          </Card>
+        </Row>
+      </Col>
     </>
   );
 }
