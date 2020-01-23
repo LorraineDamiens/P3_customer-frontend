@@ -22,8 +22,6 @@ function Router() {
         <Route path="/services" component={CardList} />
         <Route path="/confirmation" component={Confirmation} />
       </Switch>
-
-      <Footer />
     </BrowserRouter>
   );
 }
