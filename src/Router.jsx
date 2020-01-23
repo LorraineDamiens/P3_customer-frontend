@@ -7,6 +7,7 @@ import MiscInfo from "./components/MiscInfo";
 import CardList from "./components/CardList";
 import Confirmation from "./components/Confirmation";
 import NavbarTop from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function Router() {
   return (
