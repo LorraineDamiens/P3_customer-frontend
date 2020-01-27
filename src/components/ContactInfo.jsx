@@ -57,8 +57,8 @@ function ContactInfo({ dispatch, contact }) {
   return (
     <>
       <h2>Préparez votre évènement!</h2>
-      <Col xs="12" sm="12">
-        <Row>
+      <Row className="justify-content-center">
+        <Col xs="12" sm="8">
           <Card className="cust">
             <CardHeader>Formulaire de contact:</CardHeader>
             <CardBody>
@@ -143,8 +143,8 @@ function ContactInfo({ dispatch, contact }) {
               </Button>
             </CardBody>
           </Card>
-        </Row>
-      </Col>
+        </Col>
+      </Row>
     </>
   );
 }
