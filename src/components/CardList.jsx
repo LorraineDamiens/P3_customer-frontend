@@ -7,6 +7,7 @@ import Reception from "./Reception";
 import Restaurants from "./Restaurants";
 import Audiovisual from "./Audiovisual";
 import Staff from "./Staff";
+import Equipment from "./Equipment";
 
 function CardList() {
   const history = useHistory();

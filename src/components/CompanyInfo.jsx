@@ -62,68 +62,70 @@ function CompanyInfo({ dispatch, company }) {
   };
   return (
     <>
-      <Row>
-        <Card className="custform">
-          <CardHeader>Si vous êtes une société:</CardHeader>
-          <CardBody>
-            <Col>
-              <FormGroup>
-                <Label for="textarea">
-                  Nom de la société:
+      <Row className="justify-content-center">
+        <Col xs="12" sm="8">
+          <Card className="custform">
+            <CardHeader>Si vous êtes une société:</CardHeader>
+            <CardBody>
+              <Col>
+                <FormGroup>
+                  <Label for="textarea">
+                    Nom de la société:
+                    <Input
+                      type="text"
+                      name="companyName"
+                      id="companyName"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      required
+                    />
+                  </Label>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="textarea">
+                    Fonction dans la société:
+                    <Input
+                      type="text"
+                      name="companyFunction"
+                      id="companyFunction"
+                      value={companyFunction}
+                      onChange={e => setcompanyFunction(e.target.value)}
+                      required
+                    />{" "}
+                  </Label>
+                </FormGroup>
+                {events.map(({ name, label }, i) => {
+                  return (
+                    <FormGroup check key={i}>
+                      <Label check>
+                        <Input
+                          type="radio"
+                          id={name}
+                          name="radio"
+                          onClick={handleRadio}
+                        />{" "}
+                        {label}
+                      </Label>
+                    </FormGroup>
+                  );
+                })}
+                <br />
+                <InputGroup>
                   <Input
                     type="text"
-                    name="companyName"
-                    id="companyName"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    required
+                    name="eventType"
+                    placeholder="Autres"
+                    value={eventType}
+                    onChange={handleInput}
                   />
-                </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for="textarea">
-                  Fonction dans la société:
-                  <Input
-                    type="text"
-                    name="companyFunction"
-                    id="companyFunction"
-                    value={companyFunction}
-                    onChange={e => setcompanyFunction(e.target.value)}
-                    required
-                  />{" "}
-                </Label>
-              </FormGroup>
-              {events.map(({ name, label }, i) => {
-                return (
-                  <FormGroup check key={i}>
-                    <Label check>
-                      <Input
-                        type="radio"
-                        id={name}
-                        name="radio"
-                        onClick={handleRadio}
-                      />{" "}
-                      {label}
-                    </Label>
-                  </FormGroup>
-                );
-              })}
-              <br />
-              <InputGroup>
-                <Input
-                  type="text"
-                  name="eventType"
-                  placeholder="Autres"
-                  value={eventType}
-                  onChange={handleInput}
-                />
-              </InputGroup>
-            </Col>
+                </InputGroup>
+              </Col>
 
-            <Button onClick={goBack}>Précédent</Button>
-            <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
-          </CardBody>
-        </Card>
+              <Button onClick={goBack}>Précédent</Button>
+              <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
+            </CardBody>
+          </Card>
+        </Col>
       </Row>
     </>
   );

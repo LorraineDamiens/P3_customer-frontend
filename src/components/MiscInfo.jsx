@@ -5,7 +5,9 @@ import {
   InputGroupText,
   Input,
   Button,
-  Container
+  Container,
+  Row,
+  Col
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -108,76 +110,80 @@ function MiscInfo({ dispatch, misc }) {
     <>
       <h2> Informations complémentaires</h2>
       <Container className="miscont">
-        <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Nombre d'invités</InputGroupText>
-          </InputGroupAddon>
-          <Input
-            type="number"
-            name="nbGuests"
-            placeholder="Nombre d'invités"
-            value={values.nbGuests}
-            onChange={handleChange}
-          />
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Budget</InputGroupText>
-          </InputGroupAddon>
-          <Input
-            type="number"
-            name="budget"
-            placeholder="Budget"
-            value={values.budget}
-            onChange={handleChange}
-          />
-        </InputGroup>
+        <Row className="justify-content-center">
+          <Col xs="12" sm="10">
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText>Nombre d'invités</InputGroupText>
+              </InputGroupAddon>
+              <Input
+                type="number"
+                name="nbGuests"
+                placeholder="Nombre d'invités"
+                value={values.nbGuests}
+                onChange={handleChange}
+              />
+            </InputGroup>
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText>Budget</InputGroupText>
+              </InputGroupAddon>
+              <Input
+                type="number"
+                name="budget"
+                placeholder="Budget"
+                value={values.budget}
+                onChange={handleChange}
+              />
+            </InputGroup>
 
-        <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Date de l'évènement</InputGroupText>
-          </InputGroupAddon>
-          <Input
-            type="date"
-            name="date"
-            placeholder="Date"
-            value={date}
-            onChange={handleDate}
-          />
-        </InputGroup>
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText>Date de l'évènement</InputGroupText>
+              </InputGroupAddon>
+              <Input
+                type="date"
+                name="date"
+                placeholder="Date"
+                value={date}
+                onChange={handleDate}
+              />
+            </InputGroup>
 
-        <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Region</InputGroupText>
-          </InputGroupAddon>
-          <Input
-            type="select"
-            name="select"
-            id="region"
-            onChange={handleSelect}
-          >
-            {regions.map(region => {
-              return <option value={region}>{region}</option>;
-            })}
-          </Input>
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>Ville</InputGroupText>
-          </InputGroupAddon>
-          <Input
-            type="text"
-            name="city"
-            placeholder="Ville"
-            value={values.city}
-            onChange={handleChange}
-          />
-        </InputGroup>
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText>Region</InputGroupText>
+              </InputGroupAddon>
+              <Input
+                type="select"
+                name="select"
+                id="region"
+                onChange={handleSelect}
+              >
+                {regions.map(region => {
+                  return <option value={region}>{region}</option>;
+                })}
+              </Input>
+            </InputGroup>
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText>Ville</InputGroupText>
+              </InputGroupAddon>
+              <Input
+                type="text"
+                name="city"
+                placeholder="Ville"
+                value={values.city}
+                onChange={handleChange}
+              />
+            </InputGroup>
 
-        <Button onClick={goBack}>Précédent</Button>
-        <Button disabled={disabled} onClick={() => sendDatas("/services")}>
-          Choisir des prestations
-        </Button>
+            <Button onClick={goBack}>Précédent</Button>
+            <Button disabled={disabled} onClick={() => sendDatas("/services")}>
+              Choisir des prestations
+            </Button>
+          </Col>
+        </Row>
       </Container>
     </>
   );

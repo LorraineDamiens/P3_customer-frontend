@@ -185,7 +185,16 @@ const Staff = {
     { name: "VTC" }
   ]
 };
-
+const Equipment = {
+  activities: [
+    { name: "Décoration florale" },
+    { name: "Paperboard" },
+    { name: "Ecran de projection" },
+    { name: "Matériel son" },
+    { name: "Vidéo projecteur" },
+    { name: "Mobilier de décoration" }
+  ]
+};
 const Reception = {
   style: [{ name: "Atypique" }, { name: "Classique" }, { name: "Prestige" }],
 
@@ -197,5 +206,6 @@ export const services = {
   Reception,
   Animations,
   Restaurants,
-  Audiovisual
+  Audiovisual,
+  Equipment
 };

@@ -51,7 +51,7 @@ function Audiovisual({ dispatch }) {
   };
 
   return (
-    <Col xs="6">
+    <Col xs="12" sm="6">
       <Card body style={{ height: "150px" }}>
         <CardTitle>Audiovisuel et Com</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>

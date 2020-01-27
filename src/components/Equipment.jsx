@@ -13,9 +13,9 @@ import MyModal from "./Modal";
 import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlassCheers } from "@fortawesome/free-solid-svg-icons";
+import { faChair } from "@fortawesome/free-solid-svg-icons";
 
-function Animations({ dispatch }) {
+function Equipment({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
 
@@ -38,7 +38,7 @@ function Animations({ dispatch }) {
     dispatch({
       type: e.target.checked ? ADD_ACTIVITY : REMOVE_ACTIVITY,
       payload: {
-        type: "Animation",
+        type: "Equipment",
         activities: e.target.name
       }
     });
@@ -46,32 +46,32 @@ function Animations({ dispatch }) {
 
   const sendDatas = () => {
     dispatch({
-      // type: ADD_ANIMATION,
-      payload: { selection: selected }
+      // type: "STAFF",
+      payload: selected
     });
   };
 
   return (
     <Col xs="12" sm="6">
       <Card body style={{ height: "150px" }}>
-        <CardTitle>Animations</CardTitle>
+        <CardTitle>Equipement</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>
         <MyModal isOpen={isOpen} toggle={toggle} dispatch={sendDatas}>
           <ModalHeader className="header">
-            <FontAwesomeIcon classname="icon" icon={faGlassCheers} size="4x" />
-            <h2>Animations</h2>
+            <FontAwesomeIcon classname="icon" icon={faChair} size="4x" />
+            <h2>Equipement </h2>
           </ModalHeader>
-          {services.Animations.style.map((anim, i) => {
+          {services.Equipment.activities.map((Equipment, i) => {
             return (
               <>
                 <Row>
                   <CustomInput
                     type="switch"
-                    name={anim.name}
+                    name={Equipment.name}
                     id={i}
                     onChange={handleChange}
                   />{" "}
-                  {anim.name}
+                  {Equipment.name}
                 </Row>
               </>
             );
@@ -82,4 +82,4 @@ function Animations({ dispatch }) {
   );
 }
 
-export default connect()(Animations);
+export default connect()(Equipment);

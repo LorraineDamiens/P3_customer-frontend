@@ -56,7 +56,7 @@ function Restaurants({ dispatch }) {
   };
 
   return (
-    <Col xs="6">
+    <Col xs="12" sm="6">
       <Card body style={{ height: "150px" }}>
         <CardTitle>Traiteur et boissons</CardTitle>
         <Button onClick={toggle}>Sélectionner</Button>

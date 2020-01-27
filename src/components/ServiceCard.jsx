@@ -13,14 +13,8 @@ const ServiceCard = ({ color, name, buttonColor, types }) => {
   return (
     <>
       <Row>
-        <Col xs="5">
-          <Card
-            className="servicescard"
-            body
-            inverse
-            color={color}
-            style={{ height: "150px" }}
-          >
+        <Col>
+          <Card className="servicescard" body inverse color={color}>
             <CardTitle> {name}</CardTitle>
             <Button color={buttonColor} onClick={toggle}>
               Sélectionner

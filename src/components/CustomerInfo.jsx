@@ -48,8 +48,8 @@ function CustomerInfo({ dispatch, customer }) {
   };
   return (
     <>
-      <Col xs="12" sm="12">
-        <Row>
+      <Row className="justify-content-center">
+        <Col xs="12" sm="8">
           <Card className="custform">
             <CardHeader>Si vous êtes un particulier:</CardHeader>
             <CardBody>
@@ -82,8 +82,8 @@ function CustomerInfo({ dispatch, customer }) {
               <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
             </CardBody>
           </Card>
-        </Row>
-      </Col>
+        </Col>
+      </Row>
     </>
   );
 }
