@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { Button, Spinner, Table, Card } from "reactstrap";
+import { Button, Spinner, Table, Card, Row, Col } from "reactstrap";
 
 import Comments from "./Comments";
 import AlertWindow from "./Alert";
@@ -47,80 +47,78 @@ function Confirmation() {
   };
   return (
     <>
-      <Card className="recapform">
-        <Table>
-          <thead>
-            <tr>
-              <th>
-                <h2>Récapitulatif de votre demande</h2>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Nom:</td>
-              <td>{recap.clientName}</td>
-            </tr>
-            <tr>
-              <td> Prénom:</td>
-              <td>{recap.clientFirstname}</td>
-            </tr>
-            <tr>
-              <td> Email:</td>
-              <td>{recap.clientEmail}</td>
-            </tr>
-            <tr>
-              <td> Téléphone:</td>
-              <td>{recap.clientTel}</td>
-            </tr>
-            <tr>
-              <td> Société:</td>
-              <td>{recap.companyName}</td>
-            </tr>
-            <tr>
-              <td>Nombre d'invités:</td>
-              <td>{recap.nbGuests}</td>
-            </tr>
-            <tr>
-              <td>Budget:</td>
-              <td>{recap.budget}</td>
-            </tr>
-            <tr>
-              <td>Date de l'évènement:</td>
-              <td>{recap.date}</td>
-            </tr>
-            <tr>
-              <td>Région:</td>
-              <td>{recap.region}</td>
-            </tr>
-            <tr>
-              <td>Ville:</td>
-              <td>{recap.city}</td>
-            </tr>
-
-            <tr>
-              <td>Type d'évènement:</td>
-              <td>{recap.eventType}</td>
-            </tr>
-            {recap.services.map(service => {
-              return (
+      <Row className="justify-content-center">
+        <h2>Récapitulatif de votre demande</h2>
+        <Col xs="12" sm="12">
+          <Card className="recapform">
+            <Table>
+              <tbody>
                 <tr>
-                  <td>{service.type}</td>
-                  <td>{service.activities}</td>
+                  <td> Nom:</td>
+                  <td>{recap.clientName}</td>
                 </tr>
-              );
-            })}
+                <tr>
+                  <td> Prénom:</td>
+                  <td>{recap.clientFirstname}</td>
+                </tr>
+                <tr>
+                  <td> Email:</td>
+                  <td>{recap.clientEmail}</td>
+                </tr>
+                <tr>
+                  <td> Téléphone:</td>
+                  <td>{recap.clientTel}</td>
+                </tr>
+                <tr>
+                  <td> Société:</td>
+                  <td>{recap.companyName}</td>
+                </tr>
+                <tr>
+                  <td>Nombre d'invités:</td>
+                  <td>{recap.nbGuests}</td>
+                </tr>
+                <tr>
+                  <td>Budget:</td>
+                  <td>{recap.budget}</td>
+                </tr>
+                <tr>
+                  <td>Date de l'évènement:</td>
+                  <td>{recap.date}</td>
+                </tr>
+                <tr>
+                  <td>Région:</td>
+                  <td>{recap.region}</td>
+                </tr>
+                <tr>
+                  <td>Ville:</td>
+                  <td>{recap.city}</td>
+                </tr>
 
-            <tr>
-              <td>Commentaires:</td>
-              <td>{recap.comment}</td>
-            </tr>
-          </tbody>
-        </Table>
-      </Card>
-      <Card className="commentarea">
-        <Comments state={recap} setState={setRecap} />
-      </Card>
+                <tr>
+                  <td>Type d'évènement:</td>
+                  <td>{recap.eventType}</td>
+                </tr>
+                {recap.services.map(service => {
+                  return (
+                    <tr>
+                      <td>{service.type}</td>
+                      <td>{service.activities}</td>
+                    </tr>
+                  );
+                })}
+
+                <tr>
+                  <td>Commentaires:</td>
+                  <td>{recap.comment}</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Card>
+          <Card className="commentarea">
+            <Comments state={recap} setState={setRecap} />
+          </Card>
+        </Col>
+      </Row>
       {alert ? (
         <AlertWindow />
       ) : (
@@ -131,7 +129,7 @@ function Confirmation() {
             <Button onClick={post}>Envoyer votre demande</Button>
           )}
         </>
-      )}
+      )}{" "}
     </>
   );
 }
