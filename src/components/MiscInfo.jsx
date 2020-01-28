@@ -160,6 +160,10 @@ function MiscInfo({ dispatch, misc }) {
                 id="region"
                 onChange={handleSelect}
               >
+                <option value="" disabled selected>
+                  Sélectionner la région
+                </option>
+
                 {regions.map(region => {
                   return <option value={region}>{region}</option>;
                 })}
