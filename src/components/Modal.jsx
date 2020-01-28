@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, ModalFooter, Button } from "reactstrap";
+import { Modal, ModalFooter, Button, ModalBody } from "reactstrap";
 
 function MyModal({ isOpen, toggle, dispatch, children }) {
   const handleClick = () => {
@@ -9,7 +9,7 @@ function MyModal({ isOpen, toggle, dispatch, children }) {
   return (
     <>
       <Modal isOpen={isOpen} toggle={toggle}>
-        {children}
+        <ModalBody>{children}</ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>
             Fermer

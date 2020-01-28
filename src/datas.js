@@ -73,19 +73,24 @@ const Equipment = {
   ]
 };
 const Reception = {
-  style: [{ name: "Atypique" }, { name: "Classique" }, { name: "Prestige" }],
-  photo: [
+  style: [
     {
-      link:
-        "https://r-cf.bstatic.com/images/hotel/max1024x768/163/163344612.jpg"
+      id: 1,
+      name: "Atypique",
+      photo:
+        "https://cdn.pixabay.com/photo/2019/10/07/05/32/peniche-4531775_1280.jpg"
     },
     {
-      link:
-        "https://media-cdn.tripadvisor.com/media/photo-s/0a/e8/94/86/la-vieille-auberge.jpg"
+      id: 2,
+      name: "Classique",
+      photo:
+        "https://cdn.pixabay.com/photo/2018/05/13/21/57/home-3398116_1280.jpg"
     },
     {
-      link:
-        "https://cdn.pixabay.com/photo/2018/08/21/17/04/paris-3621678_1280.jpg"
+      id: 3,
+      name: "Prestige",
+      photo:
+        "https://cdn.pixabay.com/photo/2019/02/22/13/56/biarritz-4013618_1280.jpg"
     }
   ],
 

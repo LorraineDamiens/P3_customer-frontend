@@ -29,6 +29,12 @@ function Confirmation() {
   const [alert, setAlert] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const formatDate = ISOStringDate => {
+    let [year, month, day] = ISOStringDate.split("-");
+    day = day.split("T")[0];
+    return `${day}/${month}/${year}`;
+  };
+
   const post = () => {
     setIsLoading(true);
     axios
@@ -83,7 +89,7 @@ function Confirmation() {
                 </tr>
                 <tr>
                   <td>Date de l'évènement:</td>
-                  <td>{recap.date}</td>
+                  <td>{formatDate(recap.date)}</td>
                 </tr>
                 <tr>
                   <td>Région:</td>
