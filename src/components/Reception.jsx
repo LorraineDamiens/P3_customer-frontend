@@ -6,7 +6,10 @@ import {
   Col,
   ModalHeader,
   CustomInput,
-  Row
+  Row,
+  Modal,
+  ModalBody,
+  ModalFooter
 } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
@@ -14,11 +17,25 @@ import { connect } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import NestedModal from "./NestedModal";
+import { useEffect } from "react";
 
 function Reception({ dispatch }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
+  const [isNestedOpen, setIsNestedOpen] = useState({});
   // const [inOrOut, setInOrOut] = useState("");
+
+  useEffect(() => {
+    let nestedOpen = {};
+    services.Reception.style.forEach(x => {
+      nestedOpen = {
+        ...nestedOpen,
+        [x.id]: false
+      };
+      setIsNestedOpen(nestedOpen);
+    });
+  }, []);
 
   const data = (e, obj) => {
     let nextState = [...selected];
@@ -33,6 +50,12 @@ function Reception({ dispatch }) {
 
   const toggle = () => {
     setIsOpen(!isOpen);
+  };
+  const toggleNested = id => {
+    setIsNestedOpen({
+      ...isNestedOpen,
+      [id]: !isNestedOpen[id]
+    });
   };
 
   /* const handleRadioCheck = e => {
@@ -67,17 +90,29 @@ function Reception({ dispatch }) {
           </ModalHeader>
           {services.Reception.style.map((Reception, i) => {
             return (
-              <>
-                <Row>
+              <React.Fragment key={i}>
+                <Row className="align-items-center ">
                   <CustomInput
                     type="switch"
                     name={Reception.name}
                     id={i}
                     onChange={handleChange}
-                  />{" "}
+                  />
                   {Reception.name}
+                  <Button
+                    $
+                    size="sm"
+                    onClick={() => toggleNested(Reception.id)}
+                  >
+                    Afficher photo
+                  </Button>
                 </Row>
-              </>
+                <NestedModal
+                  {...Reception}
+                  isOpen={isNestedOpen[Reception.id]}
+                  toggle={() => toggleNested(Reception.id)}
+                />
+              </React.Fragment>
             );
           })}
           {/*  <input
