@@ -10,14 +10,16 @@ import {
 } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
-function Staff({ dispatch }) {
+function Staff() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
+  const servicesStore = useSelector(state => state.services);
+  const dispatch = useDispatch();
 
   const data = (e, obj) => {
     let nextState = [...selected];
@@ -69,6 +71,9 @@ function Staff({ dispatch }) {
                     type="switch"
                     name={Staff.name}
                     id={i}
+                    checked={servicesStore.some(
+                      s => s.activities === Staff.name
+                    )}
                     onChange={handleChange}
                   />{" "}
                   {Staff.name}
@@ -82,4 +87,4 @@ function Staff({ dispatch }) {
   );
 }
 
-export default connect()(Staff);
+export default Staff;
