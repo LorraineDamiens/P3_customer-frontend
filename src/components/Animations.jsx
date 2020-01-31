@@ -10,14 +10,16 @@ import {
 } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlassCheers } from "@fortawesome/free-solid-svg-icons";
 
-function Animations({ dispatch }) {
+function Animations() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
+  const servicesStore = useSelector(state => state.services);
+  const dispatch = useDispatch();
 
   const data = (e, obj) => {
     let nextState = [...selected];
@@ -69,6 +71,9 @@ function Animations({ dispatch }) {
                     type="switch"
                     name={anim.name}
                     id={i}
+                    checked={servicesStore.some(
+                      s => s.activities === anim.name
+                    )}
                     onChange={handleChange}
                   />{" "}
                   {anim.name}
@@ -82,4 +87,4 @@ function Animations({ dispatch }) {
   );
 }
 
-export default connect()(Animations);
+export default Animations;

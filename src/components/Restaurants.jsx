@@ -10,15 +10,16 @@ import {
 } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 
-function Restaurants({ dispatch }) {
+function Restaurants() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
-  const [serviceAtTable, setserviceAtTable] = useState("");
+  const servicesStore = useSelector(state => state.services);
+  const dispatch = useDispatch();
 
   const data = (e, obj) => {
     let nextState = [...selected];
@@ -73,6 +74,9 @@ function Restaurants({ dispatch }) {
                     type="switch"
                     name={Restaurants.name}
                     id={i}
+                    checked={servicesStore.some(
+                      s => s.activities === Restaurants.name
+                    )}
                     onChange={handleChange}
                   />{" "}
                   {Restaurants.name}
@@ -100,4 +104,4 @@ function Restaurants({ dispatch }) {
   );
 }
 
-export default connect()(Restaurants);
+export default Restaurants;
