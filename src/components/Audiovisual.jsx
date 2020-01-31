@@ -10,14 +10,16 @@ import {
 } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 
-function Audiovisual({ dispatch }) {
+function Audiovisual() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
+  const servicesStore = useSelector(state => state.services);
+  const dispatch = useDispatch();
 
   const data = (e, obj) => {
     let nextState = [...selected];
@@ -69,6 +71,9 @@ function Audiovisual({ dispatch }) {
                     type="switch"
                     name={Audiovisual.name}
                     id={i}
+                    checked={servicesStore.some(
+                      s => s.activities === Audiovisual.name
+                    )}
                     onChange={handleChange}
                   />{" "}
                   {Audiovisual.name}
@@ -82,4 +87,4 @@ function Audiovisual({ dispatch }) {
   );
 }
 
-export default connect()(Audiovisual);
+export default Audiovisual;

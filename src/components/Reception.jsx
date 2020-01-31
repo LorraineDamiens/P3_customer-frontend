@@ -6,24 +6,23 @@ import {
   Col,
   ModalHeader,
   CustomInput,
-  Row,
-  Modal,
-  ModalBody,
-  ModalFooter
+  Row
 } from "reactstrap";
 import { services } from "../datas";
 import MyModal from "./Modal";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_ACTIVITY, REMOVE_ACTIVITY } from "../reducers/actionTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import NestedModal from "./NestedModal";
 import { useEffect } from "react";
 
-function Reception({ dispatch }) {
+function Reception() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
   const [isNestedOpen, setIsNestedOpen] = useState({});
+  const servicesStore = useSelector(state => state.services);
+  const dispatch = useDispatch();
   // const [inOrOut, setInOrOut] = useState("");
 
   useEffect(() => {
@@ -96,6 +95,9 @@ function Reception({ dispatch }) {
                     type="switch"
                     name={Reception.name}
                     id={i}
+                    checked={servicesStore.some(
+                      s => s.activities === Reception.name
+                    )}
                     onChange={handleChange}
                   />
                   {Reception.name}
@@ -135,4 +137,4 @@ function Reception({ dispatch }) {
   );
 }
 
-export default connect()(Reception);
+export default Reception;

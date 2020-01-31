@@ -20,7 +20,9 @@ function CustomerInfo({ dispatch, customer }) {
   const [events] = useState([
     { name: "mariage", label: "Mariage" },
     { name: "soirée", label: "Soirée" },
-    { ...customer }
+    { name: "anniversaire", label: "Anniversaire" },
+    { name: "evg", label: "EVG" },
+    { name: "evjf", label: "EVJF" }
   ]);
   const history = useHistory();
 
@@ -53,30 +55,33 @@ function CustomerInfo({ dispatch, customer }) {
           <Card className="custform">
             <CardHeader>Si vous êtes un particulier:</CardHeader>
             <CardBody>
-              {events.map(({ name, label }, i) => {
-                return (
-                  <FormGroup check key={i}>
-                    <Label check>
-                      <Input
-                        type="radio"
-                        id={name}
-                        name="radio"
-                        onClick={handleRadio}
-                      />{" "}
-                      {label}
-                    </Label>
-                  </FormGroup>
-                );
-              })}
-              <InputGroup>
-                <Input
-                  type="text"
-                  name="eventType"
-                  placeholder="Autres"
-                  value={eventType}
-                  onChange={handleInput}
-                />
-              </InputGroup>
+              <Col>
+                {events.map(({ name, label }, i) => {
+                  return (
+                    <FormGroup check key={i}>
+                      <Label check>
+                        <Input
+                          type="radio"
+                          id={name}
+                          name="radio"
+                          onClick={handleRadio}
+                        />{" "}
+                        {label}
+                      </Label>
+                    </FormGroup>
+                  );
+                })}
+                <br />
+                <InputGroup>
+                  <Input
+                    type="text"
+                    name="eventType"
+                    placeholder="Autres"
+                    value={eventType}
+                    onChange={handleInput}
+                  />
+                </InputGroup>
+              </Col>
 
               <Button onClick={goBack}>Précédent</Button>
               <Button onClick={() => sendDatas("/misc")}>Continuer</Button>
