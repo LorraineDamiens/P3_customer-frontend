@@ -2,20 +2,25 @@
 
 ## Description
 
-This project is for the customer interface. 
+This project is for the customer interface.
 It's an react built app with some specific folders (components, reducers and images).
 
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need node and npm installed globally on your machine.
 
+Requirements:
+
+Node: 12.13.0,
+npm: 6.12.0
+
 Installation:
 
-`npm install` 
+`npm install`
 
 To Start Server:
 
-`npm start`  
+`npm start`
 
 To Visit App:
 
@@ -29,17 +34,12 @@ If you want to be able to test the order process, you have to start api and back
 
 trainer :
 
-
 [cedric.moncade@wildcodeschool.fr](mailto:cedric.moncade@wildcodeschool.fr)
-
 
 students :
 
-
 [lorrainedams@me.com](mailto:lorrainedams@me.com)
 
-
 [adrien.perez789@gmail.com](mailto:adrien.perez789@gmail.com)
-
 
 [pjlecomte@hotmail.com](mailto:pjlecomte@hotmail.com)
