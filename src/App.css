@@ -32,13 +32,7 @@ table {
   font-weight: bold;
   font-size: large;
   border-style: groove;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   margin: 30px;
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
 .custform {
   margin: auto;
@@ -104,7 +98,6 @@ table {
   background-color: #c7d46f;
 }
 
-<<<<<<< Updated upstream
 .footer {
   flex-shrink: 0;
   text-align: center;
@@ -114,9 +107,6 @@ table {
   padding: 2%;
 }
 
-
-=======
->>>>>>> Stashed changes
 h3 {
   color: #495666;
 }
@@ -126,15 +116,10 @@ h1 {
 
 h2 {
   text-align: center;
-<<<<<<< Updated upstream
 
   margin-top: 5%;
 
   margin-bottom: 5%;
-
-=======
-  margin-bottom: 5%;
->>>>>>> Stashed changes
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
