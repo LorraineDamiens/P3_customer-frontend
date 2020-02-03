@@ -32,12 +32,30 @@ https://github.com/LorraineDamiens/P3_customer-frontend
 
 All 3 projects must run at once for the app to work properly.
 
+### API : Symfony project.
+* PHP 7.3
+* MongoDB 4.2
+* Symfony 4
+* Twig 2.7
+* and the usual Symfony application requirements.
+* Yarn, Node and Composer are installed
+* Possibility to use Docker
+
+### Backoffice : Symfony project. 
+* PHP 7.4
+* symfony 4.11.3
+* twig 2.7
+
+### Client Front : React project. 
+* Node: 12.13.0 
+* npm: 6.12.0
+
 ## Contact 
 
 Lead Developper : 
 * Cedric moncade (cedric.moncade@wildcodeschool.fr)
 
 Junior Developper : 
-* Lorraine DAMIENS (lorrainedams@me.com)
-* Pierre-Juien LECOMTE (pjlecomte@hotmail.com)
-* Adrien PEREZ (adrien.perez789@gmail.com)
+* Lorraine DAMIENS (lorrainedams@me.com) [linkedIn](https://www.linkedin.com/in/lorrainedamiens/)
+* Pierre-Juien LECOMTE (pjlecomte@hotmail.com) [linkedIn](https://www.linkedin.com/in/pierre-julien-lecomte/)
+* Adrien PEREZ (adrien.perez789@gmail.com) [linkedIn](https://www.linkedin.com/in/adrien-perez-848530195/)
