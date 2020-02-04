@@ -110,7 +110,7 @@ function MiscInfo({ dispatch, misc }) {
     <>
       <h2> Informations complémentaires</h2>
       <Container className="miscont">
-        <Row className="justify-content-center">
+        <Row className="justify-content-center no-gutters">
           <Col xs="12" sm="10">
             <InputGroup>
               <InputGroupAddon addonType="prepend">

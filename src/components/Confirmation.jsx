@@ -53,7 +53,7 @@ function Confirmation() {
   };
   return (
     <>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center no-gutters">
         <h2>Récapitulatif de votre demande</h2>
         <Col xs="12" sm="12">
           <Card className="recapform">
