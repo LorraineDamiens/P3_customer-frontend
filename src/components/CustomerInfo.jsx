@@ -50,7 +50,7 @@ function CustomerInfo({ dispatch, customer }) {
   };
   return (
     <>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center no-gutters">
         <Col xs="12" sm="8">
           <Card className="custform">
             <CardHeader>Si vous êtes un particulier:</CardHeader>
