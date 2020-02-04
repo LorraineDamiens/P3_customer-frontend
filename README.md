@@ -11,8 +11,8 @@ Clone down this repository. You will need node and npm installed globally on you
 
 Requirements:
 
-Node: 12.13.0,
-npm: 6.12.0
+`Node: 12.13.0`
+`npm: 6.12.0`
 
 Installation:
 

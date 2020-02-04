@@ -76,7 +76,7 @@ function MiscInfo({ dispatch, misc }) {
   const handleDate = e => {
     setDate(e.target.value);
     const [year, month, day] = e.target.value.split("-");
-    const date = new Date(year, month, day).toISOString();
+    const date = new Date(year, month - 1, day, 1).toISOString();
     setValues({
       ...values,
       date
